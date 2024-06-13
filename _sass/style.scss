@@ -1,0 +1,116 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
+
+// ==== main scss file, jake deery, 2024 ====
+html, body {
+    padding: 0;
+    margin: 0;
+
+    // bg to be page-like
+    // color to be dark blue
+    background: $parchment;
+    color: $prussianBlue;
+
+    // font
+    font-family: "Fira Mono", monospace;
+}
+
+// ==== general rules ====
+a {
+    color: lighten($prussianBlue, 25%);
+    font-style: italic;
+
+    &:hover, &:focus,
+    &:active {
+        color: darken($prussianBlue, 25%);
+    }
+}
+
+hr {
+    border-top: 1px solid $prussianBlue;
+    opacity: 1;
+}
+
+// ==== app-specific rules ====
+#wrapper {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#header {
+    #brand {
+        h1 {
+            margin: 0;
+            font-variant: small-caps;
+            font-weight: 700;
+            line-height: 1.0;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1.15em;
+            font-weight: 500;
+        }
+    }
+
+    #nav {
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: lighten($prussianBlue, 15%);
+
+            &:hover, &:focus,
+            &:active {
+                color: darken($prussianBlue, 5%);
+            }
+        }
+    }
+}
+
+#content {
+}
+
+#footer {
+}
+
+// ==== dark mode ====
+@media(prefers-color-scheme: dark) {
+    html, body {
+        background-color: $prussianBlue;
+        color: $parchment;
+    }
+
+    a {
+        color: darken($parchment, 25%);
+
+        &:hover, &:focus,
+        &:active {
+            color: lighten($parchment, 25%);
+        }
+    }
+
+    hr {
+        border-top: 1px solid $parchment;
+        opacity: 1;
+    }
+
+    #header {
+        #nav {
+            .nav-link {
+                color: darken($parchment, 15%);
+
+                &:hover, &:focus,
+                &:active {
+                    color: lighten($parchment, 5%);
+                }
+            }
+        }
+    }
+}

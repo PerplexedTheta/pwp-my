@@ -1,0 +1,23 @@
+{
+  "name": "new-pwp",
+  "version": "0.0.1",
+  "description": "\"Were it so easy\"",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/PerplexedTheta/new-pwp.git"
+  },
+  "author": "PerplexedTheta <jahdobble@llownd.net>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://gitlab.com/PerplexedTheta/new-pwp/issues"
+  },
+  "homepage": "https://gitlab.com/PerplexedTheta/new-pwp#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
+  }
+}
