@@ -3,6 +3,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
 
+
 // ==== main scss file, jake deery, 2024 ====
 html, body {
     padding: 0;
@@ -17,14 +18,23 @@ html, body {
     font-family: "Fira Mono", monospace;
 }
 
+
 // ==== general rules ====
 a {
     color: lighten($prussianBlue, 25%);
     font-style: italic;
+    text-decoration: none;
 
     &:hover, &:focus,
     &:active {
+
         color: darken($prussianBlue, 25%);
+        text-decoration: underline;
+    }
+
+    &:focus {
+        background-color: lighten($prussianBlue, 65%);
+        outline: 2px solid $prussianBlue;
     }
 }
 
@@ -33,12 +43,14 @@ hr {
     opacity: 1;
 }
 
+
 // ==== app-specific rules ====
 #wrapper {
     display: block;
     max-width: 800px;
     margin: 0 auto;
 }
+
 
 #header {
     #brand {
@@ -47,6 +59,19 @@ hr {
             font-variant: small-caps;
             font-weight: 700;
             line-height: 1.0;
+
+            a {
+                color: $prussianBlue;
+                font-style: normal;
+                text-decoration: none;
+
+                &:focus,
+                &:hover,
+                &:active {
+                    color: darken($prussianBlue, 25%);
+                    text-decoration: underline;
+                }
+            }
         }
 
         h3 {
@@ -74,11 +99,23 @@ hr {
     }
 }
 
+
 #content {
+    // blog
+    .blog-entry {
+        padding: 1em 0 1em 0;
+        border-top: 1px solid $prussianBlue;
+    }
+
+    :nth-last-child(1 of .blog-entry) {
+        border-bottom: 1px solid $prussianBlue;
+    }
 }
+
 
 #footer {
 }
+
 
 // ==== dark mode ====
 @media(prefers-color-scheme: dark) {
@@ -102,6 +139,20 @@ hr {
     }
 
     #header {
+        #brand {
+            h1 {
+                a {
+                    color: $parchment;
+
+                    &:focus,
+                    &:hover,
+                    &:active {
+                        color: lighten($parchment, 25%);
+                    }
+                }
+            }
+        }
+
         #nav {
             .nav-link {
                 color: darken($parchment, 15%);
@@ -113,4 +164,17 @@ hr {
             }
         }
     }
+
+    #content {
+        // blog
+        .blog-entry {
+            padding: 1em 0 1em 0;
+            border-top: 1px solid $parchment;
+        }
+
+        :nth-last-child(1 of .blog-entry) {
+            border-bottom: 1px solid $parchment;
+        }
+    }
 }
+
