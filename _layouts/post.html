@@ -2,5 +2,13 @@
 layout: default
 ---
 
+<h1>blog/{{ page.title }}</h1>
+<div class="post-frontmatter">
+    <small>{{- page.category }}</small>
+    <small>{{- page.tags }}</small>
+    <small>{{- page.location }}</small>
+</div>
+
 {{ content }}
 
+<a href='{{ "blog/" | relative_url }}/'>&laquo; Back</a>

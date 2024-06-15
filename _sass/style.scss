@@ -5,7 +5,8 @@
 
 
 // ==== main scss file, jake deery, 2024 ====
-html, body {
+html,
+body {
     padding: 0;
     margin: 0;
 
@@ -21,18 +22,24 @@ html, body {
 
 // ==== general rules ====
 a {
+    // set links up
     color: lighten($prussianBlue, 25%);
     font-style: italic;
     text-decoration: none;
 
-    &:hover, &:focus,
+    &:hover,
+    &:focus,
     &:active {
-
         color: darken($prussianBlue, 25%);
-        text-decoration: underline;
+        text-decoration-color: darken($prussianBlue, 25%);
+        text-decoration-style: dotted;
+        text-decoration-line: underline;
     }
 
-    &:focus {
+    // we want a nice box around focused links
+    &:focus,
+    &:active {
+        text-decoration: none;
         background-color: lighten($prussianBlue, 65%);
         outline: 2px solid $prussianBlue;
     }
@@ -53,6 +60,7 @@ hr {
 
 
 #header {
+
     #brand {
         h1 {
             margin: 0;
@@ -91,7 +99,8 @@ hr {
         .nav-link {
             color: lighten($prussianBlue, 15%);
 
-            &:hover, &:focus,
+            &:hover,
+            &:focus,
             &:active {
                 color: darken($prussianBlue, 5%);
             }
@@ -101,25 +110,71 @@ hr {
 
 
 #content {
+
+    h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.50rem;
+        margin-bottom: 0.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.50rem;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+        margin-bottom: 0.25rem;
+    }
+
+    h5 {
+        font-size: 1.0625rem;
+        margin-bottom: 0.125rem;
+    }
+
     // blog
     .blog-entry {
-        padding: 1em 0 1em 0;
-        border-top: 1px solid $prussianBlue;
+        margin: 0.50em 0 0.50em 0;
+        padding: 0.50em 0 0 0;
+        border-top: 1px dashed $prussianBlue;
+
+        .blog-headline,
+        .blog-desc,
+        .blog-abstract {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                margin-bottom: 0.25em;
+            }
+        }
     }
 
-    :nth-last-child(1 of .blog-entry) {
-        border-bottom: 1px solid $prussianBlue;
+    .blog-pagination {
+        text-align: center;
+    }
+
+    // posts
+    .post-frontmatter {
+        margin-bottom: 1.5em;
+        display: flex;
+        justify-content: space-between;
     }
 }
 
 
-#footer {
-}
+#footer {}
 
 
 // ==== dark mode ====
 @media(prefers-color-scheme: dark) {
-    html, body {
+
+    html,
+    body {
         background-color: $prussianBlue;
         color: $parchment;
     }
@@ -127,7 +182,8 @@ hr {
     a {
         color: darken($parchment, 25%);
 
-        &:hover, &:focus,
+        &:hover,
+        &:focus,
         &:active {
             color: lighten($parchment, 25%);
         }
@@ -135,7 +191,6 @@ hr {
 
     hr {
         border-top: 1px solid $parchment;
-        opacity: 1;
     }
 
     #header {
@@ -157,7 +212,8 @@ hr {
             .nav-link {
                 color: darken($parchment, 15%);
 
-                &:hover, &:focus,
+                &:hover,
+                &:focus,
                 &:active {
                     color: lighten($parchment, 5%);
                 }
@@ -166,9 +222,9 @@ hr {
     }
 
     #content {
-        // blog
+
+        // for blog
         .blog-entry {
-            padding: 1em 0 1em 0;
             border-top: 1px solid $parchment;
         }
 
@@ -177,4 +233,3 @@ hr {
         }
     }
 }
-
