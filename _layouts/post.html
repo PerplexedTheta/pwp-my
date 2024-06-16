@@ -2,13 +2,75 @@
 layout: default
 ---
 
-<h1>blog/{{ page.title }}</h1>
 <div class="post-frontmatter">
-    <small>{{- page.category }}</small>
-    <small>{{- page.tags }}</small>
-    <small>{{- page.location }}</small>
+    <div class="row">
+        <div class="col-12 col-lg-6 text-start text-lg-start">
+            <h1>
+                {% if page.title %}
+                <a href="{{ 'blog/' | relative_url }}">blog</a>/{{ page.title }}
+                {% else %}
+                <a href="{{ 'blog/' | relative_url }}">blog</a>/
+                {% endif %}
+            </h1>
+        </div>
+        <div class="col-12 col-lg-6 text-start text-lg-end">
+            <p>
+                {% if page.date %}
+                {{- page.date | date: "%Y-%m-%d" }}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-4 text-start text-lg-start">
+            <small class="blog-category">
+                {% if page.category %}
+                🗃️ {{- page.category }}
+                {% endif %}
+            </small>
+        </div>
+        <div class="col-12 col-lg-4 text-start text-lg-center">
+            <small class="blog-wordcount">
+                {% capture words %}
+                {{ page.content | number_of_words | minus: 1 }}
+                {% endcapture %}
+                {% unless words contains "-" %}
+                ✍🏼 {{ words | plus: 1 | append: " words" }}
+                {% endunless %}
+
+                {% capture words %}
+                {{ page.content | number_of_words | minus: 250 }}
+                {% endcapture %}
+                {% unless words contains "-" %}
+                ⏱️ {{ words | plus: 250 | divided_by: 180 | append: " mins" }}
+                {% endunless %}
+            </small>
+        </div>
+        <div class="col-12 col-lg-4 text-start text-lg-end">
+            <small class="blog-location">
+                {% if page.location %}
+                📍 {{- page.location }}
+                {% endif %}
+            </small>
+        </div>
+    </div>
 </div>
 
+<hr />
 {{ content }}
+<hr />
 
-<a href='{{ "blog/" | relative_url }}/'>&laquo; Back</a>
+<div class="post-backmatter">
+    <div class="row">
+        <div class="col-12 col-lg-2 text-start text-lg-start">
+            <a href='{{ "blog/" | relative_url }}/'>&laquo; Back</a>
+        </div>
+        <div class="col-12 col-lg-10 text-start text-lg-end">
+            <small class="blog-tags">
+                {% if page.tags.size > 0 %}
+                🔖 {{- page.tags }}
+                {% endif %}
+            </small>
+        </div>
+    </div>
+</div>

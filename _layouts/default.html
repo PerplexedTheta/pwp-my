@@ -6,14 +6,17 @@
 {% include head.html %}
 
 <body>
-    <div id="wrapper" class="p-lg-4">
-        {% include header.html %}
+    <div id="wrapper" class="p-4 p-lg-3">
+        <div id="header" class="d-flex flex-column flex-lg-row flex-wrap py-4 py-lg-3 mb-4 mb-lg-4">
+            {% include header.html %}
+        </div>
         <div id="content">
             {{ content }}
         </div>
-        {% include footer.html %}
+        <div id="footer" class="d-flex flex-wrap justify-content-center py-4 py-lg-3 my-4 my-lg-4">
+            {% include footer.html %}
+        </div>
     </div>
 </body>
 
 </html>
-

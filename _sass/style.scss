@@ -1,7 +1,7 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "variables";
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'variables';
 
-@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
 
 
 // ==== main scss file, jake deery, 2024 ====
@@ -16,7 +16,11 @@ body {
     color: $prussianBlue;
 
     // font
-    font-family: "Fira Mono", monospace;
+    font-family: ui-monospace, 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Mono',
+        'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
+        'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New',
+        monospace;
+    font-weight: 500;
 }
 
 
@@ -46,7 +50,7 @@ a {
 }
 
 hr {
-    border-top: 1px solid $prussianBlue;
+    border-top: 1px dashed $prussianBlue;
     opacity: 1;
 }
 
@@ -54,8 +58,9 @@ hr {
 // ==== app-specific rules ====
 #wrapper {
     display: block;
-    max-width: 800px;
+    max-width: calc(800px + 1em);
     margin: 0 auto;
+    padding: 0 1em;
 }
 
 
@@ -138,19 +143,24 @@ hr {
 
     // blog
     .blog-entry {
-        margin: 0.50em 0 0.50em 0;
-        padding: 0.50em 0 0 0;
+        margin: 1.0em 0 1.0em 0;
+        padding: 1.0em 0 0 0;
         border-top: 1px dashed $prussianBlue;
 
         .blog-headline,
         .blog-desc,
         .blog-abstract {
-            display: flex;
-            justify-content: space-between;
-
             p {
                 margin-bottom: 0.25em;
             }
+
+            small {
+                font-weight: 300;
+            }
+        }
+
+        .blog-abstract {
+            margin-bottom: 0.75em;
         }
     }
 
@@ -159,10 +169,21 @@ hr {
     }
 
     // posts
-    .post-frontmatter {
-        margin-bottom: 1.5em;
-        display: flex;
-        justify-content: space-between;
+    .post-frontmatter,
+    .post-backmatter {
+        margin-bottom: 1.50em;
+
+        p {
+            margin-bottom: 0.25em;
+        }
+
+        small {
+            font-weight: 300;
+        }
+    }
+
+    .post-backmatter {
+        margin-top: 1.50em;
     }
 }
 
@@ -190,7 +211,7 @@ hr {
     }
 
     hr {
-        border-top: 1px solid $parchment;
+        border-top: 1px dashed $parchment;
     }
 
     #header {
@@ -225,11 +246,7 @@ hr {
 
         // for blog
         .blog-entry {
-            border-top: 1px solid $parchment;
-        }
-
-        :nth-last-child(1 of .blog-entry) {
-            border-bottom: 1px solid $parchment;
+            border-top: 1px dashed $parchment;
         }
     }
 }

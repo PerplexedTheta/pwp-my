@@ -5,32 +5,71 @@ layout: blog
 
 <h1>blog/</h1>
 
+<!-- blog index -->
+{% if site.posts.size > 0 %}
 {% for post in paginator.posts %}
 <div class="blog-entry">
     <div class="row">
         <div class="blog-headline">
-            <h4><a href="{{ post.url }}">{{- post.title }}</a></h4>
-            <small>{{- post.date | date: "%d-%m-%Y" }}</small>
-        </div>
-        <div class="blog-desc">
-            <p class="blog-excerpt">{{- post.excerpt | truncate: 160 }}</p>
+            <div class="row">
+                <div class="col-12 col-lg-6 text-start text-lg-start">
+                    <h4>
+                        {% if post.title %}
+                        <a href="{{- post.url | relative_url }}">📬 {{- post.title }}</a>
+                        {% endif %}
+                    </h4>
+                </div>
+                <div class="col-12 col-lg-6 text-start text-lg-end">
+                    <small>
+                        {% if post.date %}
+                        {{- post.date | date: "%Y-%m-%d" }}
+                        {% endif %}
+                    </small>
+                </div>
+            </div>
         </div>
         <div class="blog-abstract">
-            <small class="blog-category">
-                {% if post.category %}
-                🗃️ {{- post.category }}
+            <div class="row">
+                <div class="col-12 col-lg-4 text-start text-lg-start">
+                    <small class="blog-category">
+                        {% if post.category %}
+                        🗃️ <a href="{{- post.category | relative_url }}">{{- post.category }}</a>
+                        {% endif %}
+                    </small>
+                </div>
+                <div class="col-12 col-lg-4 text-start text-lg-center">
+                    <small class="blog-wordcount">
+                        {% capture words %}
+                        {{- post.content | number_of_words | minus: 1 }}
+                        {% endcapture %}
+                        {% unless words contains "-" %}
+                        ✍🏼 {{- words | plus: 1 | append: " words" }}
+                        {% endunless %}
+
+                        {% capture words %}
+                        {{- post.content | number_of_words | minus: 250 }}
+                        {% endcapture %}
+                        {% unless words contains "-" %}
+                        ⏱️ {{- words | plus: 250 | divided_by: 180 | append: " mins" }}
+                        {% endunless %}
+                    </small>
+                </div>
+                <div class="col-12 col-lg-4 text-start text-lg-end">
+                    <small class="blog-location">
+                        {% if post.location %}
+                        📍 {{- post.location }}
+                        {% endif %}
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="blog-desc">
+            <p class="blog-excerpt">
+                {% if post.excerpt %}
+                {{- post.excerpt | strip_html | truncate: 160 }} <a href="{{- post.url | relative_url }}">More
+                    &raquo;</a>
                 {% endif %}
-            </small>
-            <small class="blog-tags">
-                {% if post.tags.size > 0 %}
-                🔖 {{- post.tags }}
-                {% endif %}
-            </small>
-            <small class="blog-location">
-                {% if post.location %}
-                📍 {{- post.location }}
-                {% endif %}
-            </small>
+            </p>
         </div>
     </div>
 </div>
@@ -38,7 +77,11 @@ layout: blog
 <div class="blog-entry">
     <span><!-- silence is golden--></span>
 </div>
+{% else %}
+<p>No posts (yet)!</p>
+{% endif %}
 
+<!-- paginator -->
 {% if paginator.total_pages > 1 %}
 <div class="blog-pagination">
     {% if paginator.previous_page %}
