@@ -1,76 +1,65 @@
 ---
-layout: default
+layout: page
 ---
 
-<div class="post-frontmatter">
-    <div class="row">
-        <div class="col-12 col-lg-6 text-start text-lg-start">
-            <h1>
-                {% if page.title %}
-                <a href="{{ 'blog/' | relative_url }}">blog</a>/{{ page.title }}
-                {% else %}
-                <a href="{{ 'blog/' | relative_url }}">blog</a>/
-                {% endif %}
-            </h1>
-        </div>
-        <div class="col-12 col-lg-6 text-start text-lg-end">
-            <p>
-                {% if page.date %}
-                {{- page.date | date: "%Y-%m-%d" }}
-                {% endif %}
-            </p>
-        </div>
+<div class="post-entry">
+    <div class="post-headline">
+        <p class="post-date">
+            {% if page.date %}
+            📅&nbsp;{{- page.date | date: "%Y-%m-%d" }}
+            {% endif %}
+        </p>
     </div>
-    <div class="row">
-        <div class="col-12 col-lg-4 text-start text-lg-start">
-            <small class="blog-category">
-                {% if page.category %}
-                🗃️ {{- page.category }}
+    <div class="post-abstract">
+        <div class="post-frontmatter">
+            <small class="post-location">
+                {% if page.location %}
+                📍&nbsp;{{- page.location }}
                 {% endif %}
             </small>
         </div>
-        <div class="col-12 col-lg-4 text-start text-lg-center">
-            <small class="blog-wordcount">
+        <div class="post-frontmatter-right">
+            <small class="post-wordcount">
                 {% capture words %}
-                {{ page.content | number_of_words | minus: 1 }}
+                {{- page.content | number_of_words | minus: 1 }}
                 {% endcapture %}
                 {% unless words contains "-" %}
-                ✍🏼 {{ words | plus: 1 | append: " words" }}
+                ✍🏼&nbsp;{{- words | plus: 1 | thousands_separated: " " | append: " words" }}
                 {% endunless %}
 
                 {% capture words %}
-                {{ page.content | number_of_words | minus: 250 }}
+                {{- page.content | number_of_words | minus: 250 }}
                 {% endcapture %}
                 {% unless words contains "-" %}
-                ⏱️ {{ words | plus: 250 | divided_by: 180 | append: " mins" }}
+                -
+                ⏱️&nbsp;{{- words | plus: 250 | divided_by: 180 | thousands_separated: " " | append: " mins" }}
                 {% endunless %}
-            </small>
-        </div>
-        <div class="col-12 col-lg-4 text-start text-lg-end">
-            <small class="blog-location">
-                {% if page.location %}
-                📍 {{- page.location }}
-                {% endif %}
             </small>
         </div>
     </div>
 </div>
 
 <hr />
-{{ content }}
+<div class="post-content">
+    {{ content }}
+</div>
 <hr />
 
-<div class="post-backmatter">
-    <div class="row">
-        <div class="col-12 col-lg-2 text-start text-lg-start">
-            <a href='{{ "blog/" | relative_url }}/'>&laquo; Back</a>
-        </div>
-        <div class="col-12 col-lg-10 text-start text-lg-end">
-            <small class="blog-tags">
-                {% if page.tags.size > 0 %}
-                🔖 {{- page.tags }}
-                {% endif %}
-            </small>
-        </div>
+<div class="post-footer">
+    <div class="post-backmatter">
+        <a href='{{ "blog/" | relative_url }}/'>&laquo; Back</a>
+    </div>
+    <div class="post-backmatter-right">
+        <small class="post-category">
+            {% if page.category %}
+            🗃️&nbsp;{{- page.category }}
+            {% endif %}
+        </small>
+        <small class="post-tags">
+            {% if page.tags.size > 0 %}
+            -
+            🔖&nbsp;{{- page.tags }}
+            {% endif %}
+        </small>
     </div>
 </div>

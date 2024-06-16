@@ -1,0 +1,39 @@
+@import "variables";
+
+// ==== blog scss file, jake deery, 2024 ====
+#content {
+
+    // home page
+    .home-content {
+        padding: 150px 0;
+    }
+
+    // about page
+    .about-header {
+        img {
+            width: 35%;
+            border-radius: 50%;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    // portfolio page
+    .portfolio-professional,
+    .portfolio-my {
+        img {
+            max-width: 100%;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        small {
+            display: flex;
+            justify-content: end;
+        }
+    }
+}
