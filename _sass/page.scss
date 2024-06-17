@@ -28,6 +28,22 @@
         text-align: justify;
     }
 
+    .about-edu {
+        .about-edu-entry {
+            img {
+                float: left;
+                max-width: 85px;
+                margin: 0 1.50em 1.50em 0;
+            }
+
+            h5 {
+                &::before {
+                    content: "";
+                }
+            }
+        }
+    }
+
     // portfolio page
     .portfolio-professional,
     .portfolio-my {
