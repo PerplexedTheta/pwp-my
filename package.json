@@ -1,6 +1,6 @@
 {
   "name": "new-pwp",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "\"Were it so easy\"",
   "main": "gulpfile.js",
   "scripts": {
