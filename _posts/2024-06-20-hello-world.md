@@ -13,4 +13,4 @@ For the curious, I've used Jekyll to build it all &ndash; an utterly delightful 
 
 Over the next few months, I'm going to aim to get a post up on here once a week &ndash; if that proves sustainable, I'll keep at it, and if that drives me insane, I'll conversely dial it back. Don't expect quality content or thought-provoking diatribe, but I will definitely be revelling in the antics of the general election here in the UK.
 
-Off to the bar now for an alcohol-free gin. Keep the peace, folks! Caio.
+Off to the bar now for an alcohol-free gin. Keep the peace, folks! Ciao.
