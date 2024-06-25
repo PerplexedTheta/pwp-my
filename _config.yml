@@ -19,5 +19,7 @@ exclude:
     - package.json
     - package-lock.json
     - README.md
+sass:
+    style: compressed
 plugins:
     - jekyll-feed

@@ -79,6 +79,22 @@
 
     .post-content {
         text-align: justify;
+
+        img {
+            max-width: 66%;
+            width: auto;
+            margin: 5px;
+
+            &:nth-child(odd) {
+                float: right;
+                margin-right: 0;
+            }
+
+            &:nth-child(even) {
+                float: left;
+                margin-left: 0;
+            }
+        }
     }
 
     .post-footer {
@@ -99,4 +115,12 @@
             text-align: end;
         }
     }
+}
+
+// code table
+@import "syntax-highlighting";
+
+.highlight pre {
+    padding: 3px;
+    padding-left: 1em;
 }
