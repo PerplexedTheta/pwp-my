@@ -81,19 +81,10 @@
         text-align: justify;
 
         img {
-            max-width: 66%;
+            display: block;
             width: auto;
-            margin: 5px;
-
-            &:nth-child(odd) {
-                float: right;
-                margin-right: 0;
-            }
-
-            &:nth-child(even) {
-                float: left;
-                margin-left: 0;
-            }
+            max-width: 66%;
+            margin: 0 auto;
         }
     }
 
@@ -121,6 +112,29 @@
 @import "syntax-highlighting";
 
 .highlight pre {
-    padding: 3px;
-    padding-left: 1em;
+    padding: 1em;
+    padding-left: 1.50em;
+}
+
+// for desktops
+@media(min-width: 992px) {
+    #content {
+        .post-content {
+            img {
+                display: inline-block;
+
+                &:nth-child(odd) {
+                    float: right;
+                    margin: 1em;
+                    margin-right: 0;
+                }
+
+                &:nth-child(even) {
+                    float: left;
+                    margin: 1em;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 }

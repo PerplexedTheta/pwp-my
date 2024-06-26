@@ -4,7 +4,7 @@ title: Hello, world!
 description: My first blog post!
 category: weekly-post
 tags: hello-world,
-location: Cornwall, UK 🇪🇺
+location: Cornwall, UK 〓〓🇪🇺
 ---
 
 Hello, world! Hello, world? That's lame. Still, welcome to the site. I've spent the past two weeks tweaking it, so I hope you like it. I mainly plan on using this site as a place for me to discuss my interests, and share a few snippets of my life.
