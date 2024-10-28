@@ -3,7 +3,28 @@
 // ==== search scss file, jake deery, 2024 ====
 #content {
     #search-input {
+        padding: 0.33em 0.175em;
         width: 100%;
+        background: transparent;
+        color: $prussianBlue;
+        border: 2px solid lighten($prussianBlue, 15%);
+
+        &:hover, &:focus,
+        &:active {
+            background-color: lighten($prussianBlue, 85%);
+        }
+
+        &:focus {
+            border-color: darken($prussianBlue, 15%);
+            background-color: lighten($prussianBlue, 85%);
+            outline: 0.33em solid lighten($prussianBlue, 15%);
+        }
+
+        &::placeholder {
+            color: $prussianBlue;
+            font-style: italic;
+            opacity: 0.33;
+        }
     }
 
     .search-entry {
@@ -76,6 +97,26 @@
 // dark mode
 @media (prefers-color-scheme: dark) {
     #content {
+        #search-input {
+            border: 2px solid darken($parchment, 15%);
+            color: $parchment;
+    
+            &:hover, &:focus,
+            &:active {
+                background-color: darken($parchment, 85%);
+            }
+    
+            &:focus {
+                border-color: lighten($parchment, 15%);
+                background-color: darken($parchment, 85%);
+                outline: 0.33em solid darken($parchment, 15%);
+            }
+
+            &::placeholder {
+                color: $parchment;
+            }
+        }
+
         .search-entry {
             border-top-color: $parchment;
         }
