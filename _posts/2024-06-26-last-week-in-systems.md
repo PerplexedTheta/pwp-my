@@ -4,7 +4,7 @@ title: Last week in systems
 description: I change job next week, have learned the basics of Gulp, and took in a stray
 category: weekly-post
 tags: cat,gulp,job-change,awesomeness
-location: Cornwall, UK 〓〓🇪🇺
+location: Devon, UK <span class="devon">〓〓</span>🇪🇺
 ---
 
 I change jobs next week, which is super because its about time I wrote code to pay my mortgage. I've really enjoyed my time in Infrastructure, and wouldn't say I regretted spending time in sysadmin land, but the time has definitely come. We've also got a new dev starting on the 8<sup>th</sup> July, so I won't be a loner when starting, yay! 

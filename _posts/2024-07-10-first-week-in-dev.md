@@ -4,7 +4,7 @@ title: First week in dev
 description: I've written my first few bugs for Koha, available on Forgejo
 category: weekly-post
 tags: git,perl,koha,forgejo,bugzilla
-location: Cornwall, UK 〓〓🇪🇺
+location: Devon, UK <span class="devon">〓〓</span>🇪🇺
 ---
 
 I started my new job last Monday. I've been really enjoying it so far, and it already feels like I'm beginning to get the hang of things. Imposter's syndrome is apparently all part of the game, and something I definitely feel deep into right at this time (AM is worse, I usually feel a sense of accomplishment by the time PM is upon me).

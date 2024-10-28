@@ -1,0 +1,50 @@
+---
+layout: page
+title: search
+description: search page
+sitemap: false
+---
+
+<!-- search-input -->
+<form action="{{- 'search/' | relative_url }}" method="get">
+    <input type="text" name="q" id="search-input" placeholder="Search" autofocus="">
+    <input type="submit" value="Search" style="display:none">
+</form>
+<!-- ./search-input -->
+<!-- search-matter -->
+<p>
+    <span id="search-process">Loading</span> results <span id="search-query-container" style="display:none">for "<strong id="search-query"></strong>"</span>
+</p>
+<div id="search-results">
+
+</div>
+<div class="search-entry">
+    <span><!-- silence is golden--></span>
+</div>
+<!-- ./search-matter -->
+<!-- scripts -->
+<script>
+    window.data = {
+        {% for post in site.posts %}
+            {% if post.title %}
+                {% unless post.excluded_in_search %}
+                    {% if added %},{% endif %}
+                    {% assign added = false %}
+                    "{{ post.url | slugify }}": {
+                        "id":          "{{ post.url | slugify }}",
+                        "title":       "{{ post.title }}",
+                        "location":    "{{ post.location | strip_html }}",
+                        "description": "{{ post.excerpt | strip_html | truncate: 160 }}",
+                        "wordcount":   "{% capture words %}{{- post.content | number_of_words | minus: 1 }}{% endcapture %}{% unless words contains '-' %}✍🏼&nbsp;{{- words | plus: 1 | thousands_separated: ' ' | append: ' words' }}{% endunless %}{% capture words %}{{- post.content | number_of_words | minus: 250 }}{% endcapture %}{% unless words contains '-' %}-⏱️&nbsp;{{- words | plus: 250 | divided_by: 180 | append: ' mins' }}{% endunless %}",
+						"date":        "{{ post.date | date: '%Y-%m-%d' }}",
+                        "url":         "{{- post.url | strip_html | relative_url }}",
+                    }
+                    {% assign added = true %}
+                {% endunless %}
+            {% endif %}
+        {% endfor %}
+    };
+</script>
+<script src="{{- 'assets/js/lunr.min.js' | relative_url }}"></script>
+<script src="{{- 'assets/js/search.js' | relative_url }}"></script>
+<!-- ./scripts -->
