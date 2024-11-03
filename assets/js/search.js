@@ -16,7 +16,8 @@
 
     function displaySearchResults(results, query) {
         var searchResultsEl = document.getElementById("search-results"),
-            searchProcessEl = document.getElementById("search-process");
+            searchProcessEl = document.getElementById("search-process"),
+            blogUrl         = '/blog/';
 
         if (results.length) {
             var resultsHTML = "";
@@ -47,14 +48,18 @@
         } else {
             searchResultsEl.style.display = "none";
             searchProcessEl.innerText = "No";
+            // redirect to blog
+            if(query == '') window.location.href = blogUrl;
         }
     }
 
     window.index = lunr(function () {
         this.field("id");
         this.field("title");
+        this.field("location");
         this.field("description");
-        this.field("category");
+        this.field("wordcount");
+        this.field("date");
         this.field("url");
     });
 

@@ -100,12 +100,12 @@
         #search-input {
             border: 2px solid darken($parchment, 15%);
             color: $parchment;
-    
+
             &:hover, &:focus,
             &:active {
                 background-color: darken($parchment, 85%);
             }
-    
+
             &:focus {
                 border-color: lighten($parchment, 15%);
                 background-color: darken($parchment, 85%);
