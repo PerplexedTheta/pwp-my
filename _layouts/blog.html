@@ -4,51 +4,53 @@ layout: page
 
 <!-- search -->
 <form action="{{- 'search/' | relative_url }}" method="get">
-    <input type="text" name="q" id="search-input" placeholder="Search" autofocus>
+    <input type="text" name="q" id="search-input" placeholder="Search &amp; &crarr;" autofocus>
     <input type="submit" value="Search" style="display:none">
 </form>
-<span>Press return to search</span>
+<p>
+    <span>&nbsp;</span><!-- silence is golden -->
+</p>
 
 <!-- index -->
 {% if site.posts.size > 0 %}
 {% for post in paginator.posts %}
 <div class="blog-entry">
     <div class="blog-headline">
-        <h4>
+        <h4 class="order-1">
             {% if post.title %}
-            <a href="{{- post.url | relative_url }}">📬&nbsp;{{- post.title }}</a>
+            <a href="{{- post.url | relative_url }}">{{- post.title }}&nbsp;📬</a>
             {% endif %}
         </h4>
-        <p class="blog-date">
+        <p class="blog-date order-0">
             {% if post.date %}
-            📅&nbsp;{{- post.date | date: "%Y-%m-%d" }}
+            {{- post.date | date: "%Y-%m-%d" }}&nbsp;📅
             {% endif %}
         </p>
     </div>
     <div class="blog-abstract">
         <div class="blog-frontmatter">
-            <small class="blog-location">
-                {% if post.location %}
-                📍&nbsp;{{- post.location }}
-                {% endif %}
-            </small>
-        </div>
-        <div class="blog-frontmatter-right">
             <small class="blog-wordcount">
-                {% capture words %}
-                {{- post.content | number_of_words | minus: 1 }}
-                {% endcapture %}
-                {% unless words contains "-" %}
-                ✍🏼&nbsp;{{- words | plus: 1 | thousands_separated: " " | append: " words" }}
-                {% endunless %}
-
                 {% capture words %}
                 {{- post.content | number_of_words | minus: 250 }}
                 {% endcapture %}
                 {% unless words contains "-" %}
+                {{- words | plus: 250 | divided_by: 180 | append: " mins" }}&nbsp;⏱️
                 -
-                ⏱️&nbsp;{{- words | plus: 250 | divided_by: 180 | append: " mins" }}
                 {% endunless %}
+
+                {% capture words %}
+                {{- post.content | number_of_words | minus: 1 }}
+                {% endcapture %}
+                {% unless words contains "-" %}
+                {{- words | plus: 1 | thousands_separated: " " | append: " words" }}&nbsp;✍🏼
+                {% endunless %}
+            </small>
+        </div>
+        <div class="blog-frontmatter-right">
+            <small class="blog-location">
+                {% if post.location %}
+                {{- post.location }}&nbsp;📍
+                {% endif %}
             </small>
         </div>
     </div>

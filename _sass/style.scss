@@ -24,6 +24,11 @@ body {
 
 
 // ==== general rules ====
+p {
+    text-align: justify;
+    text-justify: auto;
+}
+
 a {
     // set links up
     color: lighten($prussianBlue, 25%);
@@ -61,7 +66,6 @@ hr {
 // ==== app-specific rules ====
 #wrapper {
     display: block;
-    max-width: calc(800px + 1em);
     margin: 0 auto;
     padding: 0 1em;
 
@@ -75,37 +79,30 @@ hr {
 #header {
 
     #brand {
-        h1 {
-            margin: 0;
-            font-variant: small-caps;
-            font-weight: 700;
-            line-height: 1.0;
+        position: relative;
+        display: none;
+    }
+    #brand-mobile {
+        display: block;
+    }
 
-            a {
-                color: $prussianBlue;
-                font-style: normal;
-                text-decoration: none;
-
-                &:focus,
-                &:hover,
-                &:active {
-                    color: darken($prussianBlue, 25%);
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        h3 {
-            margin: 0;
-            font-size: 1.15em;
-            font-weight: 500;
-        }
+    #logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0 1.5em;
+        width: 14em;
+        max-width: calc(30vw - 3em);
+    }
+    #logo-mobile {
+        width: 14em;
+        max-width: 40vw;
     }
 
     #nav {
         .nav-item {
             display: flex;
-            align-items: center;
+            align-items: end;
             justify-content: center;
         }
 
@@ -125,64 +122,88 @@ hr {
 #content {
 
     h1 {
+        text-align: end;
         font-size: 1.75rem;
         font-weight: 700;
         margin-bottom: 1rem;
 
-        &::before {
-            content: "# ";
+        &::after {
+            content: " #";
             color: lighten($prussianBlue, 10%);
         }
     }
 
     h2 {
+        text-align: end;
         font-size: 1.50rem;
         font-weight: 700;
         margin-bottom: 0.75rem;
 
-        &::before {
-            content: "# ";
+        &::after {
+            content: " #";
             color: lighten($prussianBlue, 10%);
         }
     }
 
     h3 {
+        text-align: end;
         font-size: 1.25rem;
         font-weight: 600;
         margin-bottom: 0.50rem;
 
-        &::before {
-            content: "# ";
+        &::after {
+            content: " #";
             color: lighten($prussianBlue, 10%);
         }
     }
 
     h4 {
+        text-align: end;
         font-size: 1.125rem;
         font-weight: 600;
         margin-bottom: 0.25rem;
 
-        &::before {
-            content: "# ";
+        &::after {
+            content: " #";
             color: lighten($prussianBlue, 10%);
         }
     }
 
     h5 {
+        text-align: end;
         font-size: 1.0625rem;
         font-weight: 500;
         margin-bottom: 0.125rem;
 
-        &::before {
-            content: "# ";
+        &::after {
+            content: " #";
             color: lighten($prussianBlue, 10%);
         }
     }
 }
 
 
-#footer {}
+#footer {
+    justify-content: center;
+}
 
+// ==== pc mode ====
+@media (min-width: 992px) {
+    #wrapper {
+        max-width: calc(40vw + 2em);
+    }
+
+    #header {
+
+        #brand {
+            display: block;
+        }
+        #brand-mobile {
+            display: none;
+        }
+
+    }
+}
 
 // ==== dark mode ====
 @media(prefers-color-scheme: dark) {
@@ -220,20 +241,6 @@ hr {
     }
 
     #header {
-        #brand {
-            h1 {
-                a {
-                    color: $parchment;
-
-                    &:focus,
-                    &:hover,
-                    &:active {
-                        color: lighten($parchment, 25%);
-                    }
-                }
-            }
-        }
-
         #nav {
             .nav-link {
                 color: darken($parchment, 15%);
@@ -261,13 +268,11 @@ hr {
         h3,
         h4,
         h5 {
-            &::before {
-                content: "# ";
+            &::after {
+                content: " #";
                 color: darken($parchment, 10%);
             }
         }
 
     }
-
-    #footer {}
 }

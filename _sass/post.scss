@@ -32,7 +32,7 @@
         }
 
         h4 {
-            &::before {
+            &::after {
                 content: "";
             }
         }
@@ -78,8 +78,6 @@
     }
 
     .post-content {
-        text-align: justify;
-
         img {
             display: block;
             width: auto;

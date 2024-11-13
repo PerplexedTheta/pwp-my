@@ -26,15 +26,15 @@
 
                 resultsHTML += "<div class=\"search-entry\">";
                 resultsHTML += "<div class=\"search-headline\">";
-				resultsHTML += "<h4><a href=\"" + post.url.trim() + "\">📬&nbsp;" + post.title + "</a></h4>";
-                resultsHTML += "<p class=\"search-date\">📅&nbsp;" + post.date +"</p>";
+                resultsHTML += "<p class=\"search-date\">" + post.date +"&nbsp;📅</p>";
+                resultsHTML += "<h4><a href=\"" + post.url.trim() + "\">" + post.title + "&nbsp;📬</a></h4>";
 				resultsHTML += "</div>";
 				resultsHTML += "<div class=\"search-abstract\">";
 				resultsHTML += "<div class=\"search-frontmatter\">";
-				resultsHTML += "<small class=\"search-location\">🔖&nbsp;" + post.location + "</small>";
+                resultsHTML += "<small class=\"search-wordcount\">" + post.wordcount + "</small>";
 				resultsHTML += "</div>";
 				resultsHTML += "<div class=\"search-frontmatter-right\">";
-				resultsHTML += "<small class=\"search-wordcount\">" + post.wordcount + "</small>";
+                resultsHTML += "<small class=\"search-location\">" + post.location + "&nbsp;📍</small>";
 				resultsHTML += "</div>";
 				resultsHTML += "</div>";
 				resultsHTML += "<div class=\"search-desc\">";

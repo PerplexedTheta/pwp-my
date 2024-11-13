@@ -1,22 +1,22 @@
 ---
 layout: page
-title: search
+title: /search/
 description: search page
 sitemap: false
 ---
 
 <!-- search-input -->
 <form action="{{- 'search/' | relative_url }}" method="get">
-    <input type="text" name="q" id="search-input" placeholder="Search" autofocus="">
+    <input type="text" name="q" id="search-input" placeholder="Search &amp; &crarr;" autofocus="">
     <input type="submit" value="Search" style="display:none">
 </form>
 <!-- ./search-input -->
 <!-- search-matter -->
-<p>
+<p class="text-end">
     <span id="search-process">Loading</span> results <span id="search-query-container" style="display:none">for "<strong id="search-query"></strong>"</span>
 </p>
 <div id="search-results">
-
+    <!-- silence is golden -->
 </div>
 <div class="search-entry">
     <span><!-- silence is golden--></span>
@@ -35,7 +35,7 @@ sitemap: false
                         "title":       "{{ post.title }}",
                         "location":    "{{ post.location | strip_html }}",
                         "description": "{{ post.excerpt | strip_html | truncate: 160 }}",
-                        "wordcount":   "{% capture words %}{{- post.content | number_of_words | minus: 1 }}{% endcapture %}{% unless words contains '-' %}✍🏼&nbsp;{{- words | plus: 1 | thousands_separated: ' ' | append: ' words' }}{% endunless %}{% capture words %}{{- post.content | number_of_words | minus: 250 }}{% endcapture %}{% unless words contains '-' %}-⏱️&nbsp;{{- words | plus: 250 | divided_by: 180 | append: ' mins' }}{% endunless %}",
+                        "wordcount":   "{% capture words %}{{- post.content | number_of_words | minus: 250 }}{% endcapture %}{% unless words contains "-" %}{{- words | plus: 250 | divided_by: 180 | append: ' mins' }}&nbsp;⏱️ - {% endunless %}{% capture words %}{{- post.content | number_of_words | minus: 1 }}{% endcapture %}{% unless words contains "-" %}{{- words | plus: 1 | thousands_separated: ' ' | append: ' words' }}&nbsp;✍🏼{% endunless %}",
 						"date":        "{{ post.date | date: '%Y-%m-%d' }}",
                         "url":         "{{- post.url | strip_html | relative_url }}",
                     }

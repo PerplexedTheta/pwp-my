@@ -11,7 +11,7 @@
     // about page
     .about-header {
         img {
-            width: 35%;
+            width: 65%;
             border-radius: 50%;
         }
 
@@ -28,18 +28,28 @@
         text-align: justify;
     }
 
+    .about-contact {
+        p {
+            text-align: end;
+        }
+    }
+
     .about-edu {
         .about-edu-entry {
             img {
-                float: left;
+                float: right;
                 max-width: 85px;
-                margin: 0 1.50em 1.50em 0;
+                margin: 0 0 1.50em 1.50em;
             }
 
             h5 {
-                &::before {
+                &::after {
                     content: "";
                 }
+            }
+
+            p {
+                text-align: end;
             }
         }
     }
@@ -56,12 +66,6 @@
 
         p {
             text-align: justify;
-        }
-
-        small {
-            min-width: 150px;
-            display: flex;
-            justify-content: end;
         }
     }
 }

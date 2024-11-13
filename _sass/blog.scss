@@ -28,16 +28,15 @@
         h1,
         h4 {
             white-space: nowrap;
-            overflow-x: hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
 
-            &::before {
+            &::after {
                 content: "";
             }
         }
 
         p {
-            min-width: 150px;
             font-weight: 200;
             text-align: end;
         }
@@ -50,13 +49,13 @@
 
         .blog-frontmatter {
             white-space: nowrap;
-            overflow-x: hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .blog-frontmatter-right {
             white-space: nowrap;
-            overflow-x: hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
             text-align: end;
         }

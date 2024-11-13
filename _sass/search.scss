@@ -7,6 +7,7 @@
         width: 100%;
         background: transparent;
         color: $prussianBlue;
+        text-align: end;
         border: 2px solid lighten($prussianBlue, 15%);
 
         &:hover, &:focus,
@@ -21,6 +22,7 @@
         }
 
         &::placeholder {
+            text-align: end;
             color: $prussianBlue;
             font-style: italic;
             opacity: 0.33;
@@ -53,16 +55,15 @@
         h1,
         h4 {
             white-space: nowrap;
-            overflow-x: hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
 
-            &::before {
+            &::after {
                 content: "";
             }
         }
 
         p {
-            min-width: 150px;
             font-weight: 200;
             text-align: end;
         }
@@ -75,13 +76,13 @@
 
         .search-frontmatter {
             white-space: nowrap;
-            overflow-x: hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .search-frontmatter-right {
             white-space: nowrap;
-            overflow-x: hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
             text-align: end;
         }

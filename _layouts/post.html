@@ -4,37 +4,40 @@ layout: page
 
 <div class="post-entry">
     <div class="post-headline">
-        <p class="post-date">
-            {% if page.date %}
-            📅&nbsp;{{- page.date | date: "%Y-%m-%d" }}
-            {% endif %}
+        <p class="post-null">
+            <!-- silence is golden -->
         </p>
+        {% if page.date %}
+        <p class="post-date">
+            📅&nbsp;{{- page.date | date: "%Y-%m-%d" }}
+        </p>
+        {% endif %}
     </div>
     <div class="post-abstract">
         <div class="post-frontmatter">
-            <small class="post-location">
-                {% if page.location %}
-                📍&nbsp;{{- page.location }}
-                {% endif %}
-            </small>
-        </div>
-        <div class="post-frontmatter-right">
             <small class="post-wordcount">
-                {% capture words %}
-                {{- page.content | number_of_words | minus: 1 }}
-                {% endcapture %}
-                {% unless words contains "-" %}
-                ✍🏼&nbsp;{{- words | plus: 1 | thousands_separated: " " | append: " words" }}
-                {% endunless %}
-
                 {% capture words %}
                 {{- page.content | number_of_words | minus: 250 }}
                 {% endcapture %}
                 {% unless words contains "-" %}
+                {{- words | plus: 250 | divided_by: 180 | thousands_separated: " " | append: " mins" }}&nbsp;⏱️
                 -
-                ⏱️&nbsp;{{- words | plus: 250 | divided_by: 180 | thousands_separated: " " | append: " mins" }}
+                {% endunless %}
+
+                {% capture words %}
+                {{- page.content | number_of_words | minus: 1 }}
+                {% endcapture %}
+                {% unless words contains "-" %}
+                {{- words | plus: 1 | thousands_separated: " " | append: " words" }}&nbsp;✍🏼
                 {% endunless %}
             </small>
+        </div>
+        <div class="post-frontmatter-right">
+            {% if page.location %}
+            <small class="post-location">
+                📍&nbsp;{{- page.location }}
+            </small>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -51,16 +54,16 @@ layout: page
         <a href='{{ "blog/" | relative_url }}/'>&laquo; Back</a>
     </div>
     <div class="post-backmatter-right">
-        <small class="post-category">
-            {% if page.category %}
-            🗃️&nbsp;{{- page.category }}
-            {% endif %}
-        </small>
+        {% if page.tags.size > 0 %}
         <small class="post-tags">
-            {% if page.tags.size > 0 %}
+            {{- page.tags }}&nbsp;🔖
             -
-            🔖&nbsp;{{- page.tags }}
-            {% endif %}
         </small>
+        {% endif %}
+        {% if page.category %}
+        <small class="post-category">
+            {{- page.category }}&nbsp;🗃️
+        </small>
+        {% endif %}
     </div>
 </div>
