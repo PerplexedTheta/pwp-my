@@ -1,0 +1,38 @@
+---
+exclude:
+  - /_*
+  - /lib
+  - /node_modules
+  - /scripts
+  - .*
+  - cpanfile
+  - gulpfile.js
+  - package.json
+  - package-lock.json
+exclude-watch:
+  - /lib
+  - /node_modules
+  - /scripts
+  - .*
+  - cpanfile
+  - gulpfile.js
+  - package.json
+  - package-lock.json
+generator: Qgoda v0.9.8 (http://www.qgoda.net/)
+helpers:
+  serve: npm run serve
+  sass: gulp watch
+index: index
+latency: 0.5
+render_path: /{directory}/{index}{suffix}
+paths:
+  plugins: _plugins
+  po: _po
+  site: _output
+  timestamp: _timestamp
+  views: _views
+permalink: '{significant-path}/{index}{suffix}'
+srcdir: /Users/macos/repos/pwp-my
+title: ~perplexedtheta
+url: '/'
+view: default.html

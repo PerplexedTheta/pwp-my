@@ -1,0 +1,6 @@
+[% WRAPPER wrappers/default.tt %]
+    <h1>[% asset.title %]</h1>
+    <div class="page-content">
+        [% content %]
+    </div>
+[% END %]

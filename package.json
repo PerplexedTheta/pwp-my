@@ -4,6 +4,7 @@
   "description": "\"Were it so easy\"",
   "main": "gulpfile.js",
   "scripts": {
+    "serve": "browser-sync start --server _output --files _timestamp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,10 @@
   "homepage": "https://gitlab.com/PerplexedTheta/new-pwp#readme",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "browser-sync": "^3.0.3",
+    "gulp": "^5.0.0",
+    "gulp-sass": "^6.0.0",
+    "sass": "^1.82.0"
   }
 }

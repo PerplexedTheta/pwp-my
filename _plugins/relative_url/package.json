@@ -1,0 +1,25 @@
+{
+    "contributors": [],
+    "homepage": "http://www.qgoda.net/",
+    "qgoda": {
+        "language": "Perl"
+    },
+    "license": "Apache-2.0",
+    "main": "index.pl",
+    "repository": {
+        "url": "https://github.com/PerplexedTheta/pwp-my"
+    },
+    "scripts": {
+        "test": "make test"
+    },
+    "name": "qgoda-tt2-plugin-relative_url",
+    "keywords": "",
+    "bugs": "https://github.com/PerplexedTheta/pwp-my/issues",
+    "directories": {
+        "lib": "./lib",
+        "t": "./t"
+    },
+    "version": "0.0.1",
+    "description": "relative_url functionality for Qgoda",
+    "author": "PerplexedTheta"
+}

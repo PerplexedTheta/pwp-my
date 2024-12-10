@@ -1,0 +1,49 @@
+[% USE q = Qgoda %]
+[% USE date %]
+[% USE relative_url %]
+
+[% WRAPPER wrappers/page.tt %]
+    [% posts = q.listPosts.nsortBy('date').reverse() %]
+
+    <!-- search-input -->
+    <form action="[% 'search/' | $relative_url %]" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search &amp; &crarr;" autofocus="">
+        <input type="submit" value="Search" style="display:none">
+    </form>
+    <!-- ./search-input -->
+    <!-- search-matter -->
+    <p class="text-end">
+        <span id="search-process">Loading</span> results <span id="search-query-container" style="display:none">for "<strong id="search-query"></strong>"</span>
+    </p>
+    <div id="search-results">
+        <!-- silence is golden -->
+    </div>
+    <div class="search-entry">
+        <span><!-- silence is golden--></span>
+    </div>
+    <!-- ./search-matter -->
+    <!-- scripts -->
+    <script>
+        window.data = {
+        [% FOREACH post IN posts %]
+            [% UNLESS post.exclude_from_search %]
+                [% word_count = ( post.word_count - 1 ) | format("%d") %]
+                [% read_time  = ( post.read_time )      | format("%d") %]
+                "[% post.permalink %]": {
+                    "id": "[% post.permalink | xml %]",
+                    "title": "[% post.title | replace('"', '\"') %]",
+                    "date": "[% date.format(post.date, "%Y-%m-%d") %]",
+                    "location": "[% post.location | replace('"', '\"') %]",
+                    "word_count": "[% ( word_count + 1 ) %]",
+                    "read_time": "[% read_time %]",
+                    "excerpt": "[% post.excerpt | truncate(160) | replace('"', '\"') %]",
+                    "permalink": "[% post.permalink | xml %]"
+                }[% UNLESS loop.last %],[% END %]
+            [% END %]
+        [% END %]
+        };
+    </script>
+    <script src="[% 'assets/js/lunr.min.js' | $relative_url %]"></script>
+    <script src="[% 'assets/js/search.js' | $relative_url %]"></script>
+    <!-- ./scripts -->
+[% END %]

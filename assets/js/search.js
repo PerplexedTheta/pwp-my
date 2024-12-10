@@ -1,5 +1,3 @@
----
----
 (function () {
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1),
@@ -26,20 +24,28 @@
 
                 resultsHTML += "<div class=\"search-entry\">";
                 resultsHTML += "<div class=\"search-headline\">";
-                resultsHTML += "<p class=\"search-date\">" + post.date +"&nbsp;📅</p>";
-                resultsHTML += "<h4><a href=\"" + post.url.trim() + "\">" + post.title + "&nbsp;📬</a></h4>";
-				resultsHTML += "</div>";
-				resultsHTML += "<div class=\"search-abstract\">";
-				resultsHTML += "<div class=\"search-frontmatter\">";
-                resultsHTML += "<small class=\"search-wordcount\">" + post.wordcount + "</small>";
-				resultsHTML += "</div>";
-				resultsHTML += "<div class=\"search-frontmatter-right\">";
-                resultsHTML += "<small class=\"search-location\">" + post.location + "&nbsp;📍</small>";
-				resultsHTML += "</div>";
-				resultsHTML += "</div>";
-				resultsHTML += "<div class=\"search-desc\">";
-				resultsHTML += "<p class=\"search-excerpt\">" + post.description + " <a href=\"" + post.url.trim() + "\">More &raquo;</a></p>";
-				resultsHTML += "</div>";
+                resultsHTML += "<p class=\"search-date\">" + post.date +" 📅</p>";
+                resultsHTML += "<h4><a href=\"" + post.permalink.trim() + "\">" + post.title + " 📬</a></h4>";
+                resultsHTML += "</div>";
+                resultsHTML += "<div class=\"search-abstract\">";
+                resultsHTML += "<div class=\"search-frontmatter\">";
+                resultsHTML += "<small class=\"search-wordcount\">";
+                if ( post.word_count > 249 ) {
+                    resultsHTML += post.read_time + " mins ⏱️";
+                    resultsHTML += " - ";
+                }
+                if ( post.word_count > 1 ) {
+                    resultsHTML += post.word_count + " words ✍🏼";
+                }
+                resultsHTML += "</small>";
+                resultsHTML += "</div>";
+                resultsHTML += "<div class=\"search-frontmatter-right\">";
+                resultsHTML += "<small class=\"search-location\">" + post.location + " 📍</small>";
+                resultsHTML += "</div>";
+                resultsHTML += "</div>";
+                resultsHTML += "<div class=\"search-desc\">";
+                resultsHTML += "<p class=\"search-excerpt\">" + post.excerpt + " <a href=\"" + post.permalink.trim() + "\">More &raquo;</a></p>";
+                resultsHTML += "</div>";
                 resultsHTML += "</div>";
             });
 
@@ -57,10 +63,11 @@
         this.field("id");
         this.field("title");
         this.field("location");
-        this.field("description");
-        this.field("wordcount");
+        this.field("excerpt");
+        this.field("word_count");
+        this.field("read_time");
         this.field("date");
-        this.field("url");
+        this.field("permalink");
     });
 
     var query = decodeURIComponent((getQueryVariable("q") || "").replace(/\+/g, "%20")),

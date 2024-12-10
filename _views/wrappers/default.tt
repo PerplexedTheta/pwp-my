@@ -1,0 +1,7 @@
+[% USE q = Qgoda %]
+[% WRAPPER layouts/html5.tt %]
+    [% PROCESS layouts/head.tt %]
+    [% WRAPPER layouts/body.tt %]
+        [% content %]
+    [% END %]
+[% END %]
