@@ -1,0 +1,5 @@
+---
+description: The personal webpages of ~perplexedtheta, a full-stack developer based in the UK
+title: /blog/
+view: blog.html
+---

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en-GB">
+    
+    
+
+
+<head>
+    
+    <meta name="robots" content="index, follow">
+    <title>~perplexedtheta | Last week in systems</title>
+    <meta name="og:title" content="~perplexedtheta | Last week in systems">
+    <meta name="description" content="I change job next week, have learned the basics of Gulp, and took in a stray">
+    <meta name="og:description" content="I change job next week, have learned the basics of Gulp, and took in a stray">
+    
+    <link rel="apple-touch-icon" sizes="60x60" href="/~perplexedtheta/recipes/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~perplexedtheta/recipes/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~perplexedtheta/recipes/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/~perplexedtheta/recipes/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/~perplexedtheta/recipes/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="/~perplexedtheta/recipes/assets/css/compiled.css" />
+  <meta name="generator" content="Qgoda v0.9.8 (http://www.qgoda.net/)" />
+</head>
+
+    
+
+
+<body>
+    <div id="wrapper" class="p-4 p-lg-3">
+        <div id="header" class="d-flex flex-column flex-lg-row flex-wrap my-4 my-lg-3">
+            
+
+
+<div id="brand-mobile" class="ms-auto me-0 order-0 order-lg-1">
+    <a href="/~perplexedtheta/recipes/" title="Click for homepage">
+        <img id="logo-mobile" alt="Site logo" src="/~perplexedtheta/recipes/assets/vectors/logo_l2r.svg" />
+    </a>
+</div>
+<div id="brand" class="order-0 order-lg-1">
+    <a href="/~perplexedtheta/recipes/" title="Click for homepage">
+        <img id="logo" alt="Site logo" src="/~perplexedtheta/recipes/assets/vectors/logo_t2b.svg" />
+    </a>
+</div>
+<ul id="nav" class="nav ms-auto me-0 order-1 order-lg-0">
+    <li class="nav-item"><a href="/~perplexedtheta/recipes/" class="nav-link px-2">home</a></li>
+    <li class="nav-item"><a href="/~perplexedtheta/recipes/about/" class="nav-link px-2">about</a></li>
+    <li class="nav-item"><a href="/~perplexedtheta/recipes/blog/" class="nav-link px-2">blog</a></li>
+    <li class="nav-item"><a href="/~perplexedtheta/recipes/portfolio/" class="nav-link px-2">portfolio</a></li>
+</ul>
+
+        </div>
+        <div id="content">
+            
+        
+    <h1>Last week in systems</h1>
+    <div class="page-content">
+        
+    
+    <div class="post-entry">
+        <div class="post-headline">
+            <p class="post-null">
+                
+            </p>
+            
+            <p class="post-date">
+                📅 2024-06-26
+            </p>
+            
+        </div>
+        <div class="post-abstract">
+            <div class="post-frontmatter">
+                <small class="post-wordcount">
+                    
+                        
+                        
+                        
+                        
+                        246 words ✍🏼
+                        
+                    
+                </small>
+            </div>
+            <div class="post-frontmatter-right">
+                
+                <small class="post-location">
+                    📍 Devon, UK <span class="devon">〓〓</span>🇪🇺
+                </small>
+                
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <div class="post-content">
+        <p>I change jobs next week, which is super because its about time I wrote code to pay my mortgage. I've really enjoyed my time in Infrastructure, and wouldn't say I regretted spending time in sysadmin land, but the time has definitely come. We've also got a new dev starting on the 8<sup>th</sup> July, so I won't be a loner when starting, yay! </p>
+
+<p>I've been working on a SASS project again this week, and decided to use Gulp to build the SASS "properly". It was a handy experience, which led me to create a simple yet effective <code>Gulpfile.js</code>:</p>
+
+<p>const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));</p>
+
+<p>// build sass
+function compileSass() {
+  return gulp.src('scss/**/compiled.scss') // Path to your SASS files
+    .pipe(sass({
+      outputStyle: 'compressed',
+      precision: 3,
+      errLogToConsole: true,
+      includePaths: ['node_modules/']
+    }).on('error', console.error))
+    .pipe(gulp.dest('css')); // Output directory for CSS files
+}
+gulp.task('compile-sass', compileSass);
+gulp.task('sass', compileSass);</p>
+
+<p>// watch sass
+function watchSass() {
+  gulp.watch('scss/<em>*/</em>.scss', gulp.series('sass'));
+}
+gulp.task('sass-watch', watchSass);</p>
+
+<p>It isn't anything amazing, but I'm very pleased!</p>
+
+<p><img src="/~perplexedtheta/recipes/assets/bitmaps/blog/2024-06-26-cat-in-yard.jpg" alt="Stray cat in yard" /></p>
+
+<p>Outside of techiness, we've had a stray cat coming in the yard. She's hands down the sweetest, chattiest &amp; friendliest cat I've ever had the pleasure of interacting with &ndash; and we grew up with cats.</p>
+
+<p>Tragically, she appears to have fallen on hard times. She's very skinny, and has terribly matted fur. I've been putting food out for her since Monday, and will continue to do so. </p>
+
+<p>If she's still around next week, I'll get her to the vets, and give her a haircut..!</p>
+
+        <div style="clear:both"></div>
+    </div>
+    <hr />
+
+    <div class="post-footer">
+        <div class="post-backmatter">
+            <a href='/~perplexedtheta/recipes/blog/'>&laquo; Back</a>
+        </div>
+        <div class="post-backmatter-right">
+            
+            <small class="post-tags">
+                cat,gulp,job-change,awesomeness 🔖
+                -
+            </small>
+            
+            
+            <small class="post-category">
+                weekly-post 🗃️
+            </small>
+            
+        </div>
+    </div>
+
+    </div>
+
+    
+        </div>
+        <div id="footer" class="d-flex flex-column flex-lg-row flex-wrap my-4 my-lg-3">
+            
+
+
+
+<div class="footer-preception text-center">
+    <img src="/~perplexedtheta/recipes/assets/bitmaps/perception-32px.png" />
+</div>
+<span>&nbsp;&nbsp;&nbsp;</span>
+<div class="footer-mugshot text-center">
+    <img src="https://gravatar.com/avatar/2e0bac14d9dd0ced0778bd3505d44870e93a45b05e563d57a4e23a0fb9ca841b?s=32" />
+</div>
+
+        </div>
+    </div>
+    
+     <script src="/~perplexedtheta/recipes/assets/js/main.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,109 @@
+[% USE q = Qgoda %]
+[% USE date %]
+[% USE relative_url %]
+
+[% WRAPPER wrappers/page.tt %]
+    [% posts = q.listPosts.nsortBy('date').reverse() %]
+
+    <!-- search -->
+    <form action="[% 'search/' | $relative_url %]" method="get">
+        <input type="text" name="q" id="search-input" placeholder="Search &amp; &crarr;" autofocus>
+        <input type="submit" value="Search" style="display:none">
+    </form>
+    <p>
+        <span>&nbsp;</span>
+    </p>
+
+    [% IF posts.size() > 0 %]
+        [% start = asset.start || 0 %]
+        [% asset.start = 0 %]
+        [% paginator = q.paginate(start = start total = posts.size per_page = 7) %]
+        <!-- index -->
+        [% FOREACH post IN posts.splice(paginator.start, paginator.per_page) %]
+            <div class="blog-entry">
+                <div class="blog-headline">
+                    <h4 class="order-1">
+                        [% IF post.title %]
+                            <a href="[% post.permalink %]">[% post.title %] 📬</a>
+                        [% END %]
+                    </h4>
+                    <p class="blog-date order-0">
+                        [% IF post.date %]
+                            [% date.format(post.date, '%Y-%m-%d') %] 📅
+                        [% END %]
+                    </p>
+                </div>
+                <div class="blog-abstract">
+                    <div class="blog-frontmatter">
+                        <small class="blog-wordcount">
+                            [% IF post.word_count %]
+                                [% word_count = ( post.word_count - 1 ) | format("%d") %]
+			        [% read_time  = ( post.read_time )      | format("%d") %]  
+                                [% UNLESS ( post.word_count < 250 ) %]
+                                    [% read_time %] mins ⏱️
+                                    -
+                                [% END %]
+                                [% UNLESS ( word_count == 0 ) %]
+                                    [% ( word_count + 1 ) %] words ✍🏼
+                                [% END %]
+                            [% END %]
+                        </small>
+                    </div>
+                    <div class="blog-frontmatter-right">
+                        <small class="blog-location">
+                            [% IF post.location %]
+                                [% post.location %]&nbsp;📍
+                            [% END %]
+                        </small>
+                    </div>
+                </div>
+                <div class="blog-desc">
+                    <p class="blog-excerpt">
+                        [% IF post.excerpt %]
+                            [% post.excerpt | truncate(160) %] <a href="[% post.permalink %]">More &raquo;</a>
+                        [% END %]
+                    </p>
+                </div>
+            </div>
+        [% END %]
+        <div class="blog-entry">
+            <span><!-- silence is golden--></span>
+        </div>
+
+        <!-- paginator -->
+        [% IF paginator.total_pages > 1 %]
+            <div class="blog-pagination">
+                [% IF paginator.previous_link %]
+                    <a href="[% 'blog/' | $relative_url %][% paginator.previous_link %]">&laquo; Prev</a>
+                [% ELSE %]
+                    <span>&laquo; Prev</span>
+                [% END %]
+
+                [% FOREACH page_link IN paginator.links %]
+                    [% page = loop.count %]
+
+                    [% IF page == paginator.page %]
+                        <em>[% page %]</em>
+                    [% ELSIF page == 1 %]
+                        <a href="[% 'blog/' | $relative_url %]">[% page %]</a>
+                    [% ELSE %]
+                        <a href="[% 'blog/' | $relative_url %][% page_link %]">[% page %]</a>
+                    [% END %]
+                [% END %]
+
+                [% IF paginator.next_link %]
+                    <a href="[% 'blog/' | $relative_url %][% paginator.next_link %]">Next &raquo;</a>
+                [% ELSE %]
+                    <span>Next &raquo;</span>
+                [% END %]
+            </div>
+            [% IF paginator.next_render_path %]
+                [% origin_render_path = ( 'blog/' _ 'index.html' ) %]
+                [% next_render_path   = ( 'blog/' _ '/index-' _ ( paginator.page + 1 ) _ '.html' ) %]
+                [% q.clone(render_path = next_render_path prev_render_path = origin_render_path start = paginator.next_start) %]
+            [% END %]
+        [% END %]
+    [% ELSE %]
+        <p>No posts (yet)!</p>
+    [% END %]
+[% END %]
