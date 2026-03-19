@@ -1,0 +1,9 @@
+# disallow access to .git
+RedirectMatch 404 /\.git
+
+# disallow indexes
+Options -Indexes
+
+# errordocs
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html

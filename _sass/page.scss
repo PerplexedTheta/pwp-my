@@ -1,0 +1,64 @@
+@import "variables";
+
+// ==== page scss file, jake deery, 2024 ====
+#content {
+
+    // home page
+    .home-content {
+        padding: 150px 0;
+    }
+
+    // about page
+    .about-header {
+        img {
+            width: 65%;
+            border-radius: 50%;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .about-work,
+    .about-contact,
+    .about-background,
+    .about-edu,
+    .about-tech {
+        text-align: justify;
+    }
+
+    .about-edu {
+        .about-edu-entry {
+            img {
+                float: right;
+                max-width: 85px;
+                margin: 0 0 1.50em 1.50em;
+            }
+
+            h5 {
+                display: inline;
+                font-style: oblique;
+
+                &::before {
+                    content: "";
+                }
+            }
+        }
+    }
+
+    // portfolio page
+    .portfolio-pwp,
+    .portfolio-professional,
+    .portfolio-my {
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        p {
+            text-align: justify;
+        }
+    }
+}

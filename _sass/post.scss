@@ -1,0 +1,171 @@
+@import "variables";
+
+// ==== post scss file, jake deery, 2024 ====
+#content {
+    .post-entry {
+        margin: 1.0em 0 1.0em 0;
+        padding: 1.0em 0 0 0;
+        border-top: 1px dashed $prussianBlue;
+
+        .post-headline,
+        .post-abstract {
+            p {
+                margin-bottom: 0.25em;
+            }
+
+            small {
+                font-weight: 200;
+            }
+        }
+    }
+
+    .post-headline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1,
+        h4 {
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+
+        h4 {
+            &::before {
+                content: "";
+            }
+        }
+
+        p {
+            font-weight: 200;
+        }
+    }
+
+    .post-abstract {
+        display: flex;
+        justify-content: space-between;
+
+        .post-frontmatter {
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .post-frontmatter-right {
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .post-entry {
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    .post-table {
+        table-layout: fixed;
+        width: 100%;
+        margin-top: .75em;
+        margin-bottom: .75em;
+
+        td {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            border: 1px dashed $prussianBlue;
+            text-align: center;
+        }
+    }
+
+    .post-frontmatter,
+    .post-backmatter {
+        p {
+            margin-bottom: 0.25em;
+        }
+
+        small {
+            min-width: 150px;
+            font-weight: 200;
+        }
+    }
+
+    .post-content {
+        text-align: justify;
+
+        .post-poster {
+            background-repeat: no-repeat;
+            background-attachment: center;
+            background-position: center;
+            background-size: cover;
+            margin-bottom: 1em;
+        }
+
+        img {
+            display: block;
+            width: auto;
+            max-width: 66%;
+            margin: 0 auto;
+        }
+    }
+
+    .post-footer {
+        display: flex;
+        justify-content: space-between;
+
+        .post-backmatter {
+            min-width: 85px;
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .post-backmatter-right {
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+    #content {
+        .post-table {
+            td {
+                border-color: $parchment;
+            }
+        }
+    }
+}
+
+// code table
+@import "syntax-highlighting";
+
+.highlight pre {
+    padding: 1em;
+    padding-left: 1.50em;
+}
+
+// for desktops
+@media(min-width: 992px) {
+    #content {
+        .post-content {
+            img {
+                display: inline-block;
+
+                &:nth-child(odd) {
+                    float: right;
+                    margin: 1em;
+                    margin-right: 0;
+                }
+
+                &:nth-child(even) {
+                    float: left;
+                    margin: 1em;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
