@@ -3,6 +3,11 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+.bundle
+.npm
+.nvm
+.bash_history
+.profile
 Gemfile.lock
 node_modules
 package-lock.json
