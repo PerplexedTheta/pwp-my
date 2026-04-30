@@ -14,29 +14,29 @@ layout: page
 <!-- index -->
 {% if site.posts.size > 0 %}
 {% for post in paginator.posts %}
-<div class="blog-entry">
-    <div class="blog-headline">
+<div class="ramblings">
+    <div class="ramblings-headline">
         <h4>
             {% if post.title %}
             <a href="{{- post.url | relative_url }}">&#128236;&nbsp;{{- post.title }}</a>
             {% endif %}
         </h4>
-        <p class="blog-date">
+        <p class="ramblings-date">
             {% if post.date %}
             &#128197;&nbsp;{{- post.date | date: "%Y-%m-%d" }}
             {% endif %}
         </p>
     </div>
-    <div class="blog-abstract">
-        <div class="blog-frontmatter">
-            <small class="blog-location">
+    <div class="ramblings-abstract">
+        <div class="ramblings-frontmatter">
+            <small class="ramblings-location">
                 {% if post.location %}
                 &#128205;&nbsp;{{- post.location }}
                 {% endif %}
             </small>
         </div>
-        <div class="blog-frontmatter-right">
-            <small class="blog-wordcount">
+        <div class="ramblings-frontmatter-right">
+            <small class="ramblings-wordcount">
                 {% capture words %}
                 {{- post.content | number_of_words | minus: 250 }}
                 {% endcapture %}
@@ -57,8 +57,8 @@ layout: page
             </small>
         </div>
     </div>
-    <div class="blog-desc">
-        <p class="blog-excerpt">
+    <div class="ramblings-desc">
+        <p class="ramblings-excerpt">
             {% if post.excerpt %}
             {{- post.excerpt | strip_html | truncate: 160 }} <a href="{{- post.url | relative_url }}">More
                 &raquo;</a>
@@ -67,16 +67,16 @@ layout: page
     </div>
 </div>
 {% endfor %}
-<div class="blog-entry">
+<div class="ramblings">
     <span><!-- silence is golden--></span>
 </div>
 {% else %}
-<p>No posts (yet)!</p>
+<p>No ramblings (yet)!</p>
 {% endif %}
 
 <!-- paginator -->
 {% if paginator.total_pages > 1 %}
-<div class="blog-pagination">
+<div class="ramblings-pagination">
     {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
     {% else %}

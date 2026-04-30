@@ -3,13 +3,13 @@ version: 1.0.0
 email: jahdobble@llownd.net
 description: >- # this means to ignore newlines until "baseurl:"
     "Were it so easy"
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /ramblings
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
-## Blog settings
+## Ramblings settings
 paginate: 5
-paginate_path: "/blog/:num/"
-permalink: /blog/:year/:month/:day/:title:output_ext
+paginate_path: "/ramblings/:num/"
+permalink: /ramblings/:year/:month/:day/:title:output_ext
 
 # Build settings
 exclude:

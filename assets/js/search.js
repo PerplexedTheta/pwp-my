@@ -17,7 +17,7 @@
     function displaySearchResults(results, query) {
         var searchResultsEl = document.getElementById("search-results"),
             searchProcessEl = document.getElementById("search-process"),
-            blogUrl         = '/blog/';
+            ramblingsUrl    = '/ramblings/';
 
         if (results.length) {
             var resultsHTML = "";
@@ -48,8 +48,8 @@
         } else {
             searchResultsEl.style.display = "none";
             searchProcessEl.innerText = "No";
-            // redirect to blog
-            if(query == '') window.location.href = blogUrl;
+            // redirect to ramblings
+            if(query == '') window.location.href = ramblingsUrl;
         }
     }
 

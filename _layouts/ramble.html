@@ -2,24 +2,24 @@
 layout: page
 ---
 
-<div class="post-entry">
-    <div class="post-headline">
+<div class="ramble">
+    <div class="ramble-headline">
         {% if page.date %}
-        <p class="post-date">
+        <p class="ramble-date">
             &#128197;&nbsp;{{- page.date | date: "%Y-%m-%d" }}
         </p>
         {% endif %}
     </div>
-    <div class="post-abstract">
-        <div class="post-frontmatter">
+    <div class="ramble-abstract">
+        <div class="ramble-frontmatter">
             {% if page.location %}
-            <small class="post-location">
+            <small class="ramble-location">
                 &#128205;&nbsp;{{- page.location }}
             </small>
             {% endif %}
         </div>
-        <div class="post-frontmatter-right">
-            <small class="post-wordcount">
+        <div class="ramble-frontmatter-right">
+            <small class="ramble-wordcount">
                 {% capture words %}
                 {{- page.content | number_of_words | minus: 250 }}
                 {% endcapture %}
@@ -43,25 +43,25 @@ layout: page
 </div>
 
 <hr />
-<div class="post-content">
+<div class="ramble-content">
     {{ content }}
     <div style="clear:both"></div>
 </div>
 <hr />
 
-<div class="post-footer">
-    <div class="post-backmatter">
-        <a href='{{ "blog/" | relative_url }}/'>&laquo; Back</a>
+<div class="ramble-footer">
+    <div class="ramble-backmatter">
+        <a href='{{ "ramblings/" | relative_url }}/'>&laquo; Back</a>
     </div>
-    <div class="post-backmatter-right">
+    <div class="ramble-backmatter-right">
         {% if page.tags.size > 0 %}
-        <small class="post-tags">
+        <small class="ramble-tags">
             &#128278;&nbsp;{{- page.tags }}
             -
         </small>
         {% endif %}
         {% if page.category %}
-        <small class="post-category">
+        <small class="ramble-category">
             &#128451;&#65039;&nbsp;{{- page.category }}
         </small>
         {% endif %}

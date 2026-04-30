@@ -1,15 +1,15 @@
 @import "variables";
 
-// ==== blog scss file, jake deery, 2024 ====
+// ==== ramblings scss file, jake deery, 2024 ====
 #content {
-    .blog-entry {
+    .ramblings {
         margin: 1.0em 0 1.0em 0;
         padding: 1.0em 0 0 0;
         border-top: 1px dashed $prussianBlue;
 
-        .blog-headline,
-        .blog-abstract,
-        .blog-desc {
+        .ramblings-headline,
+        .ramblings-abstract,
+        .ramblings-desc {
             p {
                 margin-bottom: 0.25em;
             }
@@ -20,7 +20,7 @@
         }
     }
 
-    .blog-headline {
+    .ramblings-headline {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -41,31 +41,31 @@
         }
     }
 
-    .blog-abstract {
+    .ramblings-abstract {
         display: flex;
         justify-content: space-between;
         margin-bottom: 0.75em;
 
-        .blog-frontmatter {
+        .ramblings-frontmatter {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .blog-frontmatter-right {
+        .ramblings-frontmatter-right {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
     }
 
-    .blog-desc {
-        .blog-excerpt {
+    .ramblings-desc {
+        .ramblings-excerpt {
             text-align: justify;
         }
     }
 
-    .blog-pagination {
+    .ramblings-pagination {
         text-align: center;
     }
 }
@@ -73,7 +73,7 @@
 // ==== dark mode ====
 @media(prefers-color-scheme: dark) {
     #content {
-        .blog-entry {
+        .ramblings {
             border-top: 1px dashed $parchment;
         }
     }

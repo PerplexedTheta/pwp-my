@@ -187,6 +187,14 @@ hr {
 
 #footer {
     justify-content: center;
+
+    .footer-preception,
+    .footer-mugshot {
+        img {
+            width: auto;
+            height: 32px;
+        }
+    }
 }
 
 // ==== pc mode ====
@@ -259,9 +267,9 @@ hr {
 
     #content {
 
-        // blog & post
-        // blog only
-        .blog-entry {
+        // ramblings & ramble
+        // ramblings only
+        .ramblings {
             border-top: 1px dashed $parchment;
         }
 
