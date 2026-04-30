@@ -24,10 +24,10 @@
             results.forEach(function (result) {
                 var post = window.data[result.ref];
 
-                resultsHTML += "<div class=\"search-entry\">";
+                resultsHTML += "<div class=\"search-result\">";
                 resultsHTML += "<div class=\"search-headline\">";
                 resultsHTML += "<h4>&#128236;&nbsp;<a href=\"" + post.url.trim() + "\">" + post.title + "</a></h4>";
-                resultsHTML += "<p class=\"search-date\">&#128197;&nbsp;" + post.date +"</p>";
+                resultsHTML += "<small class=\"search-date\">&#128197;&nbsp;" + post.date +"</small>";
 				resultsHTML += "</div>";
 				resultsHTML += "<div class=\"search-abstract\">";
 				resultsHTML += "<div class=\"search-frontmatter\">";

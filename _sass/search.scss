@@ -27,7 +27,7 @@
         }
     }
 
-    .search-entry {
+    .search-result {
         margin: 1.0em 0 1.0em 0;
         padding: 1.0em 0 0 0;
         border-top: 1px dashed $prussianBlue;
@@ -52,10 +52,6 @@
 
         h1,
         h4 {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
             &::before {
                 content: "";
             }
@@ -64,6 +60,10 @@
         p {
             font-weight: 200;
         }
+    }
+
+    .search-date {
+        min-width: 7.5rem;
     }
 
     .search-abstract {
@@ -114,7 +114,7 @@
             }
         }
 
-        .search-entry {
+        .search-result {
             border-top-color: $parchment;
         }
     }

@@ -59,7 +59,7 @@
         }
     }
 
-    .ramble-entry {
+    .ramble {
         padding-top: 0;
         border-top: 0;
     }
@@ -121,9 +121,21 @@
         }
 
         .ramble-backmatter-right {
-            white-space: nowrap;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
+            max-width: calc(100% - 85px);
+            display: flex;
+            justify-content: space-between;
+
+            .ramble-tags,
+            .ramble-category {
+                white-space: nowrap;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .ramble-category {
+                text-align: end;
+                min-width: 9.5rem;
+            }
         }
     }
 }

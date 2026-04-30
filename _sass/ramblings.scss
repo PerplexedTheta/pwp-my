@@ -27,10 +27,6 @@
 
         h1,
         h4 {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
             &::before {
                 content: '';
             }
@@ -39,6 +35,10 @@
         p {
             font-weight: 200;
         }
+    }
+
+    .ramblings-date {
+        min-width: 7.5rem;
     }
 
     .ramblings-abstract {

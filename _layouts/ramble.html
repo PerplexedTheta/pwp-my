@@ -5,9 +5,9 @@ layout: page
 <div class="ramble">
     <div class="ramble-headline">
         {% if page.date %}
-        <p class="ramble-date">
+        <small class="ramble-date">
             &#128197;&nbsp;{{- page.date | date: "%Y-%m-%d" }}
-        </p>
+        </small>
         {% endif %}
     </div>
     <div class="ramble-abstract">
@@ -57,8 +57,8 @@ layout: page
         {% if page.tags.size > 0 %}
         <small class="ramble-tags">
             &#128278;&nbsp;{{- page.tags }}
-            -
         </small>
+        &nbsp;
         {% endif %}
         {% if page.category %}
         <small class="ramble-category">

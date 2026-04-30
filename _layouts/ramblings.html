@@ -21,11 +21,11 @@ layout: page
             <a href="{{- post.url | relative_url }}">&#128236;&nbsp;{{- post.title }}</a>
             {% endif %}
         </h4>
-        <p class="ramblings-date">
+        <small class="ramblings-date">
             {% if post.date %}
             &#128197;&nbsp;{{- post.date | date: "%Y-%m-%d" }}
             {% endif %}
-        </p>
+        </small>
     </div>
     <div class="ramblings-abstract">
         <div class="ramblings-frontmatter">
