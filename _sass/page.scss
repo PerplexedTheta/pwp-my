@@ -2,7 +2,6 @@
 
 // ==== page scss file, jake deery, 2024 ====
 #content {
-
     // home page
     .home-content {
         padding: 150px 0;
@@ -33,7 +32,7 @@
             img {
                 float: right;
                 max-width: 85px;
-                margin: 0 0 1.50em 1.50em;
+                margin: 0 0 1.5em 1.5em;
             }
 
             h5 {
@@ -60,6 +59,11 @@
         p {
             text-align: justify;
         }
+    }
+
+    // goodies page
+    .goodies-content {
+        padding: 150px 0;
     }
 
     // legal page

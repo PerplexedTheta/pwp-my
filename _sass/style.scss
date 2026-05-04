@@ -15,18 +15,23 @@ body {
     color: $prussianBlue;
 
     // font
-    font-family: ui-monospace, "SF Mono", "Menlo", "Monaco", "Cascadia Mono",
+    font-family:
+        ui-monospace, "SF Mono", "Menlo", "Monaco", "Cascadia Mono",
         "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
         "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New",
         monospace;
     font-weight: 400;
 }
 
-
 // ==== general rules ====
 p {
     text-align: justify;
     text-justify: auto;
+}
+
+::selection {
+    background: $prussianBlue;
+    color: $parchment;
 }
 
 a {
@@ -62,7 +67,6 @@ hr {
     overflow: auto;
 }
 
-
 // ==== app-specific rules ====
 #wrapper {
     display: block;
@@ -74,7 +78,7 @@ hr {
         background: $parchment;
         color: #000;
         font-style: normal;
-        font-size: 0.80em;
+        font-size: 0.8em;
     }
 
     .devon {
@@ -82,9 +86,7 @@ hr {
     }
 }
 
-
 #header {
-
     #brand {
         position: relative;
         display: none;
@@ -119,15 +121,23 @@ hr {
             &:hover,
             &:focus,
             &:active {
-                color: darken($prussianBlue, 5%);
+                color: darken($prussianBlue, 25%);
+                text-decoration-color: darken($prussianBlue, 25%);
+                text-decoration-style: dotted;
+                text-decoration-line: underline;
+            }
+
+            // we want a nice box around focused links
+            &:focus,
+            &:active {
+                box-shadow: none;
+                outline: 2px dashed $prussianBlue;
             }
         }
     }
 }
 
-
 #content {
-
     h1 {
         font-size: 1.75rem;
         font-weight: 700;
@@ -140,7 +150,7 @@ hr {
     }
 
     h2 {
-        font-size: 1.50rem;
+        font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 0.75rem;
 
@@ -153,7 +163,7 @@ hr {
     h3 {
         font-size: 1.25rem;
         font-weight: 600;
-        margin-bottom: 0.50rem;
+        margin-bottom: 0.5rem;
 
         &::before {
             content: "# ";
@@ -184,7 +194,6 @@ hr {
     }
 }
 
-
 #footer {
     justify-content: center;
 
@@ -204,27 +213,28 @@ hr {
     }
 
     #header {
-
         #brand {
             display: block;
         }
         #brand-mobile {
             display: none;
         }
-
     }
 }
 
 // ==== dark mode ====
-@media(prefers-color-scheme: dark) {
-
+@media (prefers-color-scheme: dark) {
     html,
     body {
-
         // bg to be page-like
         // color to be dark blue
         background: $prussianBlue;
         color: $parchment;
+    }
+
+    ::selection {
+        background: $parchment;
+        color: $prussianBlue;
     }
 
     a {
@@ -234,8 +244,8 @@ hr {
         &:hover,
         &:focus,
         &:active {
-            color: lighten($parchment, 25%);
-            text-decoration-color: lighten($parchment, 25%);
+            color: lighten($parchment, 5%);
+            text-decoration-color: lighten($parchment, 5%);
         }
 
         // we want a nice box around focused links
@@ -259,14 +269,20 @@ hr {
                 &:focus,
                 &:active {
                     color: lighten($parchment, 5%);
+                    text-decoration-color: lighten($parchment, 5%);
+                }
+
+                // we want a nice box around focused links
+                &:focus,
+                &:active {
+                    box-shadow: none;
+                    outline: 2px dashed $parchment;
                 }
             }
         }
     }
 
-
     #content {
-
         // ramblings & ramble
         // ramblings only
         .ramblings {
@@ -283,6 +299,5 @@ hr {
                 color: darken($parchment, 10%);
             }
         }
-
     }
 }
