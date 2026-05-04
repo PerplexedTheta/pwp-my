@@ -38,7 +38,7 @@
 				resultsHTML += "</div>";
 				resultsHTML += "</div>";
 				resultsHTML += "<div class=\"search-desc\">";
-				resultsHTML += "<p class=\"search-excerpt\">" + post.description + " <a href=\"" + post.url.trim() + "\">More &raquo;</a></p>";
+				resultsHTML += "<p class=\"search-excerpt\">" + post.excerpt + " <a href=\"" + post.url.trim() + "\">More &raquo;</a></p>";
 				resultsHTML += "</div>";
                 resultsHTML += "</div>";
             });

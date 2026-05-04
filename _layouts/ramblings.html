@@ -42,16 +42,15 @@ layout: page
                 {% endcapture %}
                 {% unless words contains "-" %}
                 &#9201;&#65039;&nbsp;{{- words | plus: 250 | divided_by: 180 | append: " mins" }}
-                -
                 {% else %}
                 &#9201;&#65039;&nbsp;20 secs
-                -                
                 {% endunless %}
 
                 {% capture words %}
                 {{- post.content | number_of_words | minus: 1 }}
                 {% endcapture %}
                 {% unless words contains "-" %}
+                -
                 &#9997;&#127996;&nbsp;{{- words | plus: 1 | thousands_separated: " " | append: " words" }}
                 {% endunless %}
             </small>
@@ -60,7 +59,7 @@ layout: page
     <div class="ramblings-desc">
         <p class="ramblings-excerpt">
             {% if post.excerpt %}
-            {{- post.excerpt | strip_html | truncate: 160 }} <a href="{{- post.url | relative_url }}">More
+            {{- post.excerpt | strip_html | strip_newlines | truncate: 160 }} <a href="{{- post.url | relative_url }}">More
                 &raquo;</a>
             {% endif %}
         </p>

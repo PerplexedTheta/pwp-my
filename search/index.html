@@ -34,7 +34,7 @@ sitemap: false
                         "id":          "{{ post.url | slugify }}",
                         "title":       "{{ post.title }}",
                         "location":    "{{ post.location | strip_html }}",
-                        "description": "{{ post.excerpt | strip_html | truncate: 160 }}",
+                        "excerpt":     "{{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}",
                         "wordcount":   "{% capture words %}{{- post.content | number_of_words | minus: 250 }}{% endcapture %}{% unless words contains "-" %}&#9201;&#65039;&nbsp;{{- words | plus: 250 | divided_by: 180 | append: ' mins' }} - {% else %}&#9201;&#65039;&nbsp;20 secs - {% endunless %}{% capture words %}{{- post.content | number_of_words | minus: 1 }}{% endcapture %}{% unless words contains "-" %}&#9997;&#127996;&nbsp;{{- words | plus: 1 | thousands_separated: ' ' | append: ' words' }}{% endunless %}",
 						"date":        "{{ post.date | date: '%Y-%m-%d' }}",
                         "url":         "{{- post.url | strip_html | relative_url }}",
