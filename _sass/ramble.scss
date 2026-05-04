@@ -110,8 +110,6 @@
     }
 
     .ramble-next {
-        float: right;
-
         &::after {
             content: " \00bb";
         }

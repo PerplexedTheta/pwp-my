@@ -44,8 +44,30 @@ layout: page
 
 <hr />
 <div class="ramble-content">
+    {% if page.prev-post && page.prev-post.url %}
+    <p class="text-start">
+        <a href="{{ page.prev-post.url | relative_url }}" class="ramble-prev">
+            {% if page.prev-post.label %}
+                {{- page.prev-post.label }}
+            {% else %}
+                Previous post
+            {% endif %}
+        </a>
+    </p>
+    {% endif %}
     {{ content }}
     <div style="clear:both"></div>
+    {% if page.next-post && page.next-post.url %}
+    <p class="text-end">
+        <a href="{{ page.next-post.url | relative_url }}" class="ramble-next">
+            {% if page.next-post.label %}
+                {{- page.next-post.label }}
+            {% else %}
+                Next post
+            {% endif %}
+        </a>
+    </p>
+    {% endif %}
 </div>
 <hr />
 
