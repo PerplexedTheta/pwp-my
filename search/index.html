@@ -45,6 +45,11 @@ sitemap: false
         {% endfor %}
     };
 </script>
+<script>
+    const content = document.getElementById('content');
+    const contentH1 = content.getElementsByTagName('h1')[0];
+    contentH1.append(window.location.search);
+</script>
 <script src="{{- 'assets/js/lunr.min.js' | relative_url }}"></script>
 <script src="{{- 'assets/js/search.js' | relative_url }}"></script>
 <!-- ./scripts -->
