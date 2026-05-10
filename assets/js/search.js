@@ -77,4 +77,10 @@
     }
 
     displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
+
+    const title = document.getElementsByTagName('title')[0];
+    const content = document.getElementById('content');
+    const contentH1 = content.getElementsByTagName('h1')[0];
+    title.append(window.location.search);
+    contentH1.append(window.location.search);
 })();
