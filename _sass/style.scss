@@ -68,6 +68,19 @@ hr {
 }
 
 // ==== app-specific rules ====
+#notifications {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    display: none;
+    width: 70vw;
+    padding: .33em;
+    z-index: 9999;
+
+    background-color: lighten($prussianBlue, 65%);
+    outline: 2px dashed $prussianBlue;
+}
+
 #wrapper {
     display: block;
     margin: 0 auto;
@@ -147,6 +160,20 @@ hr {
             content: "# ";
             color: lighten($prussianBlue, 10%);
         }
+
+        span:hover + a {
+            color: #ffffff7f;
+        }
+
+        a {
+            color: #ffffff00;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: #ffffffff;
+            }
+        }
     }
 
     h2 {
@@ -208,6 +235,10 @@ hr {
 
 // ==== pc mode ====
 @media (min-width: 992px) {
+    #notifications {
+        width: 20vw;
+    }
+
     #wrapper {
         max-width: calc(40vw + 2em);
     }
@@ -258,6 +289,11 @@ hr {
 
     hr {
         border-top: 1px dashed $parchment;
+    }
+
+    #notifications {
+        background-color: darken($parchment, 65%);
+        outline: 2px dashed $parchment;
     }
 
     #header {
