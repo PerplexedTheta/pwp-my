@@ -30,8 +30,8 @@ sitemap: false
                 {% unless post.excluded_in_search %}
                     {% if added %},{% endif %}
                     {% assign added = false %}
-                    "{{ post.url | slugify }}": {
-                        "id":          "{{ post.url | slugify }}",
+                    "{{ post.slug }}": {
+                        "id":          "{{ post.slug }}",
                         "title":       "{{ post.title }}",
                         "location":    "{{ post.location | strip_html }}",
                         "excerpt":     "{{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}",
