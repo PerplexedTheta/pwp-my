@@ -3,7 +3,7 @@ layout: ramble
 title: "Commentaries on TQ 3.0, Vol. 1: arm64 is sick"
 description: the arm64 hype is true, its fast bwoiiii!
 category: monthly-ramble
-tags: arm-nerd,macos,raspberry-pi,emulation,software,goodies-from-the-sack
+tags: arm-nerd,macos,raspberry-pi,fuckin-sick,hardware,goodies-from-the-sack
 location: Cornwall, UK <span class="kernow">〓〓</span>&#127466;&#127482;
 ---
 
