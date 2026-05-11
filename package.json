@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://gitlab.com/PerplexedTheta/new-pwp/issues"
   },
-  "homepage": "https://gitlab.com/PerplexedTheta/new-pwp#readme",
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3"
-  }
+  "homepage": "https://gitlab.com/PerplexedTheta/new-pwp#readme"
 }

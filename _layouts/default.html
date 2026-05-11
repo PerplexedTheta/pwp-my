@@ -3,7 +3,10 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 
-{% include head.html %}
+<head>
+    {% include head.html %}
+    {% include styles.html %}
+</head>
 
 <body>
     <div id="notifications" tabindex="0"></div>
@@ -19,8 +22,7 @@
             {% include footer.html %}
         </div>
     </div>
-    <!-- scripts -->
-     <script src="{{- 'assets/js/main.js' | relative_url }}"></script>
+    {% include scripts.html %}
 </body>
 
 </html>
