@@ -21,5 +21,14 @@ exclude:
     - README.md
 sass:
     style: compressed
+jekyll-minifier:
+    remove_spaces_inside_tags: true
+    remove_multi_spaces: true
+    remove_comments: true
+    remove_intertag_spaces: true
+    compress_css: false
+    compress_javascript: true
+    compress_json: true
 plugins:
     - jekyll-feed
+    - jekyll-minifier
