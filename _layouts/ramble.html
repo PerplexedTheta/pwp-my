@@ -2,7 +2,7 @@
 layout: page
 ---
 
-<div class="ramble">
+<div class="ramble-header">
     <div class="ramble-headline">
         {% if page.date %}
         <small class="ramble-date">
@@ -42,7 +42,8 @@ layout: page
     </div>
 </div>
 
-<hr />
+<hr class="ramble-hr" />
+
 <div class="ramble-content">
     {% if page.prev-post %}
     <p class="text-start">
@@ -69,7 +70,8 @@ layout: page
     </p>
     {% endif %}
 </div>
-<hr />
+
+<hr class="ramble-hr" />
 
 <div class="ramble-footer">
     <div class="ramble-backmatter">

@@ -2,7 +2,7 @@
 
 // ==== ramblings scss file, jake deery, 2024 ====
 #content {
-    .ramblings {
+    .ramblings-entry {
         margin: 1em 0 1em 0;
         padding: 1em 0 0 0;
         border-top: 1px dashed $prussianBlue;
@@ -73,7 +73,7 @@
 // ==== dark mode ====
 @media (prefers-color-scheme: dark) {
     #content {
-        .ramblings {
+        .ramblings-entry {
             border-top: 1px dashed $parchment;
         }
     }

@@ -14,7 +14,7 @@ layout: page
 <!-- index -->
 {% if site.posts.size > 0 %}
 {% for post in paginator.posts %}
-<div class="ramblings">
+<div class="ramblings-entry">
     <div class="ramblings-headline">
         <h4>
             {% if post.title %}
@@ -66,7 +66,7 @@ layout: page
     </div>
 </div>
 {% endfor %}
-<div class="ramblings">
+<div class="ramblings-entry">
     <span><!-- silence is golden--></span>
 </div>
 {% else %}

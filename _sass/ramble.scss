@@ -2,10 +2,8 @@
 
 // ==== ramble scss file, jake deery, 2024 ====
 #content {
-    .ramble {
-        margin: 1em 0 1em 0;
-        padding: 1em 0 0 0;
-        border-top: 1px dashed $prussianBlue;
+    .ramble-header {
+        margin: 0 0 1em 0;
 
         .ramble-headline,
         .ramble-abstract {
@@ -16,6 +14,15 @@
             small {
                 font-weight: 200;
             }
+        }
+    }
+
+    .ramble-hr {
+        margin: 1.25em 0;
+        border-top: 1px dashed $prussianBlue;
+
+        &::after {
+            display: none;
         }
     }
 
@@ -57,11 +64,6 @@
             overflow-x: hidden;
             text-overflow: ellipsis;
         }
-    }
-
-    .ramble {
-        padding-top: 0;
-        border-top: 0;
     }
 
     .ramble-table {
@@ -155,6 +157,10 @@
 // dark mode
 @media (prefers-color-scheme: dark) {
     #content {
+        .ramble-hr {
+            border-top-color: $parchment;
+        }
+
         .ramble-table {
             td {
                 border-color: $parchment;
