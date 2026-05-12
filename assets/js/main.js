@@ -1,6 +1,8 @@
+---
+---
 document.addEventListener("DOMContentLoaded", event => {
     // notifications area
-    const notifications = document.getElementById('notifications');
+    var timeoutHandle = setTimeout;
 
     // permalink copy
     const content = document.getElementById('content');
@@ -11,15 +13,34 @@ document.addEventListener("DOMContentLoaded", event => {
         event.preventDefault();
         window.scrollTo({ top: 0, behavior: 'instant' });
 
-        notifications.innerText = 'Copied to clipboard';
-        notifications.style.display = 'block';
-        notifications.focus();
-
-        setTimeout(() => {
-            notifications.innerText = '';
-            notifications.style.display = 'none';
-        }, 5000);
+        window.clearTimeout(timeoutHandle);
+        timeoutHandle = notificationHandler('Copied to clipboard');
 
         return navigator.clipboard.writeText(window.location.href);
     });
+
+    // easter egg
+    const perception = document.getElementById('perception');
+
+    perception.addEventListener('click', event => {
+        event.preventDefault();
+
+        window.clearTimeout(timeoutHandle);
+        timeoutHandle = notificationHandler('Warp drive active');
+
+        return 0;
+    });
+});
+
+// handle popups
+const notificationHandler = (text => {
+    const notifications = document.getElementById('notifications');
+    notifications.innerText = text;
+    notifications.style.display = 'block';
+    notifications.focus();
+
+    return setTimeout(() => {
+        notifications.innerText = '';
+        notifications.style.display = 'none';
+    }, 5000);
 });
