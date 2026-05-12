@@ -53,11 +53,28 @@ a {
         background-color: lighten($prussianBlue, 65%);
         outline: 2px dashed $prussianBlue;
     }
+
+    &[target="_blank"] {
+        &::after {
+            content: ' \2197\fe0f';
+        }
+    }
 }
 
 hr {
-    border-top: 1px dashed $prussianBlue;
-    opacity: 1;
+    display: block;
+    margin: 2.25em 0;
+    border: none;
+    color: $prussianBlue;
+    opacity: 1.0;
+    font-weight: bold;
+
+    &::after {
+        display: block;
+        content: '***';
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .clearfix {
@@ -285,7 +302,7 @@ hr {
     }
 
     hr {
-        border-top: 1px dashed $parchment;
+        color: $parchment;
     }
 
     #notifications {
