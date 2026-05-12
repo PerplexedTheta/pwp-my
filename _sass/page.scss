@@ -9,9 +9,15 @@
 
     // about page
     .about-header {
-        img {
-            width: 65%;
-            border-radius: 50%;
+        a {
+            img {
+                width: 65%;
+                border-radius: 50%;
+            }
+
+            &::after {
+                display: none;
+            }
         }
 
         p {
