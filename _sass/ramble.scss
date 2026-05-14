@@ -17,9 +17,6 @@
         }
 
         .ramble-abstract {
-            display: flex;
-            flex-direction: column;
-    
             .ramble-frontmatter,
             .ramble-frontmatter-right {
                 white-space: nowrap;
@@ -96,9 +93,6 @@
     }
 
     .ramble-footer {
-        display: flex;
-        flex-direction: column;
-
         .ramble-backmatter {
             white-space: nowrap;
             overflow-x: hidden;
@@ -106,9 +100,6 @@
         }
 
         .ramble-backmatter-right {
-            display: flex;
-            flex-direction: column;
-
             .ramble-tags,
             .ramble-category {
                 white-space: nowrap;
@@ -148,6 +139,7 @@
     #content {
         .ramble-header {
             .ramble-abstract {
+                display: flex;
                 flex-direction: row;
                 justify-content: space-between;
             }
@@ -172,6 +164,7 @@
         }
 
         .ramble-footer {
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
 
@@ -181,6 +174,7 @@
 
             .ramble-backmatter-right {
                 max-width: calc(100% - 85px);
+                display: flex;
                 flex-direction: row;
                 justify-content: space-between;
 

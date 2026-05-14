@@ -33,8 +33,6 @@
         }
 
         .ramblings-abstract {
-            display: flex;
-            flex-direction: column;
             margin-bottom: 0.75em;
 
             .ramblings-frontmatter {
@@ -67,6 +65,7 @@
     #content {
         .ramblings-entry {
             .ramblings-abstract {
+                display: flex;
                 flex-direction: row;
                 justify-content: space-between;
             }

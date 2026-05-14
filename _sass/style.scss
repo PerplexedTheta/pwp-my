@@ -114,12 +114,17 @@ hr {
 }
 
 #header {
+    display: flex;
+    flex-direction: row;
+
     #brand {
         position: relative;
         display: none;
     }
+
     #brand-mobile {
-        display: block;
+        margin: 0 0 0 auto;
+        display: inline-block;
     }
 
     #logo {
@@ -130,19 +135,18 @@ hr {
         width: 14em;
         max-width: calc(30vw - 3em);
     }
+
     #logo-mobile {
         width: 14em;
         max-width: 40vw;
     }
 
     #nav {
-        .nav-item {
-            display: flex;
-            align-items: end;
-            justify-content: center;
-        }
+        display: block;
+        margin: 0 auto 0 0;
 
         .nav-link {
+            padding: 0;
             color: lighten($prussianBlue, 15%);
 
             &:hover,
@@ -240,10 +244,16 @@ hr {
 
     .footer-preception,
     .footer-mugshot {
+        margin-bottom: 1em;
+
         img {
             width: auto;
             height: 32px;
         }
+    }
+
+    .footer-legal {
+        margin-bottom: 1em;
     }
 }
 
@@ -261,8 +271,42 @@ hr {
         #brand {
             display: block;
         }
+
         #brand-mobile {
             display: none;
+        }
+
+        #nav {
+            margin: 0 0 0 auto;
+            display: flex;
+            flex-direction: row;
+
+            .nav-item {
+                .nav-link {
+                    margin: 0 .5em;
+                }
+
+                &:last-child {
+                    .nav-link {
+                        margin: 0 0 0 .5em;
+                    }
+                }
+            }
+        }
+    }
+
+    #footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .footer-preception,
+        .footer-mugshot {
+            margin: 0 .25em 1em .25em;
+        }
+
+        .footer-legal {
+            width: 100%;
         }
     }
 }
