@@ -15,6 +15,18 @@
                 font-weight: 200;
             }
         }
+
+        .ramble-abstract {
+            display: flex;
+            flex-direction: column;
+    
+            .ramble-frontmatter,
+            .ramble-frontmatter-right {
+                white-space: nowrap;
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+            }
+        }
     }
 
     .ramble-hr {
@@ -23,60 +35,6 @@
 
         &::after {
             display: none;
-        }
-    }
-
-    .ramble-headline {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        h1,
-        h4 {
-            white-space: nowrap;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-        }
-
-        h4 {
-            &::before {
-                content: "";
-            }
-        }
-
-        p {
-            font-weight: 200;
-        }
-    }
-
-    .ramble-abstract {
-        display: flex;
-        justify-content: space-between;
-
-        .ramble-frontmatter {
-            white-space: nowrap;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .ramble-frontmatter-right {
-            white-space: nowrap;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-        }
-    }
-
-    .ramble-table {
-        table-layout: fixed;
-        width: 100%;
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-
-        td {
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-            border: 1px dashed $prussianBlue;
-            text-align: center;
         }
     }
 
@@ -95,6 +53,20 @@
     .ramble-content {
         text-align: justify;
 
+        .ramble-table {
+            table-layout: fixed;
+            width: 100%;
+            margin-top: 0.75em;
+            margin-bottom: 0.75em;
+    
+            td {
+                overflow-x: hidden;
+                text-overflow: ellipsis;
+                border: 1px dashed $prussianBlue;
+                text-align: center;
+            }
+        }
+
         .ramble-poster {
             background-repeat: no-repeat;
             background-attachment: center;
@@ -109,35 +81,33 @@
             max-width: 66%;
             margin: 0 auto;
         }
-    }
 
-    .ramble-next {
-        &::after {
-            content: " \00bb";
+        .ramble-next {
+            &::after {
+                content: " \00bb";
+            }
         }
-    }
-
-    .ramble-prev {
-        &::before {
-            content: "\00ab  ";
+    
+        .ramble-prev {
+            &::before {
+                content: "\00ab  ";
+            }
         }
     }
 
     .ramble-footer {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
 
         .ramble-backmatter {
-            min-width: 85px;
             white-space: nowrap;
             overflow-x: hidden;
             text-overflow: ellipsis;
         }
 
         .ramble-backmatter-right {
-            max-width: calc(100% - 85px);
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
 
             .ramble-tags,
             .ramble-category {
@@ -147,14 +117,13 @@
             }
 
             .ramble-category {
-                text-align: end;
                 min-width: 9.5rem;
             }
         }
     }
 }
 
-// dark mode
+// ==== dark mode ====
 @media (prefers-color-scheme: dark) {
     #content {
         .ramble-hr {
@@ -169,17 +138,21 @@
     }
 }
 
-// code table
-@import "syntax-highlighting";
-
 .highlight pre {
     padding: 1em;
     padding-left: 1.5em;
 }
 
-// for desktops
+// ==== pc mode ====
 @media (min-width: 992px) {
     #content {
+        .ramble-header {
+            .ramble-abstract {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
         .ramble-content {
             img {
                 display: inline-block;
@@ -194,6 +167,25 @@
                     float: left;
                     margin: 1em;
                     margin-left: 0;
+                }
+            }
+        }
+
+        .ramble-footer {
+            flex-direction: row;
+            justify-content: space-between;
+
+            .ramble-backmatter {
+                min-width: 85px;
+            }
+
+            .ramble-backmatter-right {
+                max-width: calc(100% - 85px);
+                flex-direction: row;
+                justify-content: space-between;
+
+                .ramble-category {
+                    text-align: end;
                 }
             }
         }

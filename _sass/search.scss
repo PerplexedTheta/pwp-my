@@ -44,55 +44,59 @@
                 font-weight: 200;
             }
         }
-    }
 
-    .search-headline {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        h1,
-        h4 {
-            &::before {
-                content: "";
+        .search-headline {
+            h1,
+            h4 {
+                &::before {
+                    content: "";
+                }
             }
         }
 
-        p {
-            font-weight: 200;
-        }
-    }
-
-    .search-date {
-        min-width: 7.5rem;
-    }
-
-    .search-abstract {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.75em;
-
-        .search-frontmatter {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .search-date {
+            min-width: 7.5rem;
         }
 
-        .search-frontmatter-right {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
+        .search-abstract {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.75em;
 
-    .search-desc {
-        .search-excerpt {
-            text-align: justify;
+            .search-frontmatter {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .search-frontmatter-right {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .search-desc {
+            .search-excerpt {
+                text-align: justify;
+            }
         }
     }
 }
 
-// dark mode
+// ==== pc mode ====
+@media (min-width: 992px) {
+    #content {
+        .search-result {
+            .search-abstract {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+// ==== dark mode ====
 @media (prefers-color-scheme: dark) {
     #content {
         #search-input {

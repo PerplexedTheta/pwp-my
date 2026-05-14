@@ -18,55 +18,59 @@
                 font-weight: 200;
             }
         }
-    }
 
-    .ramblings-headline {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        h1,
-        h4 {
-            &::before {
-                content: "";
+        .ramblings-headline {
+            h1,
+            h4 {
+                &::before {
+                    content: "";
+                }
             }
         }
 
-        p {
-            font-weight: 200;
-        }
-    }
-
-    .ramblings-date {
-        min-width: 7.5rem;
-    }
-
-    .ramblings-abstract {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.75em;
-
-        .ramblings-frontmatter {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .ramblings-date {
+            min-width: 7.5rem;
         }
 
-        .ramblings-frontmatter-right {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
+        .ramblings-abstract {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.75em;
 
-    .ramblings-desc {
-        .ramblings-excerpt {
-            text-align: justify;
+            .ramblings-frontmatter {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .ramblings-frontmatter-right {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .ramblings-desc {
+            .ramblings-excerpt {
+                text-align: justify;
+            }
         }
     }
 
     .ramblings-pagination {
         text-align: center;
+    }
+}
+
+// ==== pc mode ====
+@media (min-width: 992px) {
+    #content {
+        .ramblings-entry {
+            .ramblings-abstract {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
     }
 }
 
