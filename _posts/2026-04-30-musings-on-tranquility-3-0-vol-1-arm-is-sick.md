@@ -25,7 +25,7 @@ It's a Mac Mini. M4. 24GB of RAM. Fuck all storage (256GB), but tonnes of storag
 
 I know what you're thinking, but let me explain, because this was a fat ole fucking risk, and it has absolutely paid off. The holy quartet of a homelab is ultimately (for me, and most) to be affordable to operate, rippin' fast, safe enough to FAFO in, and freeing of the cold grips of capitalism.
 
-[![Macmon output showing sweeeet CPU numbers]({{- 'assets/bitmaps/blog/2026-04-30-macmon.png' | relative_url }})]({{ 'assets/bitmaps/blog/2026-04-30-macmon.png' | relative_url }})
+[![Macmon output showing sweeeet CPU numbers]({{- 'include/bitmaps/blog/2026-04-30-macmon.png' | relative_url }})]({{ 'include/bitmaps/blog/2026-04-30-macmon.png' | relative_url }})
 
 The Mac Mini was cheap — under 800 quid in 2026. It sips power, about 2.5–3W with all my Docker junk up. It's rippin' fast (something I'll cover in depth in another ramble). I've Dockerised ~~everything~~ most things (something else I'll cover in another ramble), so breaking shit isn't really a thing for me anymore. I can run everything myself without causing an x86 chip to stop, drop and roll off a cliff. I think the holy quartet has been met, right?
 

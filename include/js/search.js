@@ -1,5 +1,6 @@
 ---
 ---
+
 document.addEventListener("DOMContentLoaded", event => {
     window.index = lunr(function () {
         this.field("id");

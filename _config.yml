@@ -21,6 +21,7 @@ exclude:
     - README.md
 sass:
     style: compressed
+    sourcemap: development
 jekyll-minifier:
     remove_spaces_inside_tags: true
     remove_multi_spaces: true

@@ -1,5 +1,6 @@
 ---
 ---
+
 document.addEventListener("DOMContentLoaded", event => {
     // notifications area
     var timeoutHandle = setTimeout;

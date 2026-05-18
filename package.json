@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://gitlab.com/PerplexedTheta/new-pwp/issues"
   },
-  "homepage": "https://gitlab.com/PerplexedTheta/new-pwp#readme"
+  "homepage": "https://gitlab.com/PerplexedTheta/new-pwp#readme",
+  "devDependencies": {
+    "bootstrap": "^5.3.8"
+  }
 }

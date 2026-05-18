@@ -3,7 +3,7 @@
     "short_name": "~perplexedtheta",
     "icons": [
         {
-            "src": "/assets/favicons/android-chrome-48x48.png",
+            "src": "/include/favicons/android-chrome-48x48.png",
             "sizes": "48x48",
             "type": "image/png"
         }
