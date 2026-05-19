@@ -22,6 +22,8 @@ exclude:
 sass:
     style: compressed
     sourcemap: development
+jekyll-figure:
+    paragraphs: false
 jekyll-minifier:
     remove_spaces_inside_tags: true
     remove_multi_spaces: true
@@ -32,4 +34,5 @@ jekyll-minifier:
     compress_json: true
 plugins:
     - jekyll-feed
+    - jekyll-figure
     - jekyll-minifier

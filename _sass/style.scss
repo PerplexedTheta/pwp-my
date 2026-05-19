@@ -70,6 +70,14 @@ a {
     }
 }
 
+figcaption,
+.figcaption {
+    margin: 0 2em;
+    font-size: .768em;
+    font-style: italic;
+    font-weight: 600;
+}
+
 hr {
     display: block;
     margin: 2.25em 0;

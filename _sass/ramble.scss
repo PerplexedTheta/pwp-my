@@ -145,24 +145,6 @@
             }
         }
 
-        .ramble-content {
-            img {
-                display: inline-block;
-
-                &:nth-child(odd) {
-                    float: right;
-                    margin: 1em;
-                    margin-right: 0;
-                }
-
-                &:nth-child(even) {
-                    float: left;
-                    margin: 1em;
-                    margin-left: 0;
-                }
-            }
-        }
-
         .ramble-footer {
             display: flex;
             flex-direction: row;
