@@ -1,73 +1,87 @@
 @import "variables";
 
 // ==== ramblings scss file, jake deery, 2024 ====
-#content {
-    .ramblings-entry {
-        margin: 1em 0 1em 0;
-        padding: 1em 0 0 0;
-        border-top: 1px dashed $prussianBlue;
-
-        .ramblings-headline,
-        .ramblings-abstract,
-        .ramblings-desc {
-            p {
-                margin-bottom: 0.25em;
-            }
-
-            small {
-                font-weight: 200;
-            }
-        }
-
-        .ramblings-headline {
-            h1,
-            h4 {
-                &::before {
-                    content: "";
-                }
-            }
-        }
-
-        .ramblings-date {
-            min-width: 7.5rem;
-        }
-
-        .ramblings-abstract {
-            margin-bottom: 0.75em;
-
-            .ramblings-frontmatter {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .ramblings-frontmatter-right {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-        }
-
-        .ramblings-desc {
-            .ramblings-excerpt {
-                text-align: justify;
+body[data-page-id="/ramblings/"] {
+    #wrapper {
+        #content {
+            h1 {
+                margin-bottom: 1em;
             }
         }
     }
+}
 
-    .ramblings-pagination {
-        text-align: center;
+#wrapper {
+    #content {
+        .ramblings-entry {
+            margin: 1em 0 1em 0;
+            padding: 1em 0 0 0;
+            border-top: 1px dashed $prussianBlue;
+    
+            .ramblings-headline,
+            .ramblings-abstract,
+            .ramblings-desc {
+                p {
+                    margin-bottom: 0.25em;
+                }
+    
+                small {
+                    font-weight: 200;
+                }
+            }
+    
+            .ramblings-headline {
+                h1,
+                h4 {
+                    &::before {
+                        content: "";
+                    }
+                }
+            }
+    
+            .ramblings-date {
+                min-width: 7.5rem;
+            }
+    
+            .ramblings-abstract {
+                margin-bottom: 0.75em;
+    
+                .ramblings-frontmatter {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+    
+                .ramblings-frontmatter-right {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+    
+            .ramblings-desc {
+                .ramblings-excerpt {
+                    text-align: justify;
+                }
+            }
+        }
+    
+        .ramblings-pagination {
+            text-align: center;
+        }
     }
 }
 
 // ==== pc mode ====
 @media (min-width: 992px) {
-    #content {
-        .ramblings-entry {
-            .ramblings-abstract {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+    #wrapper {
+        #content {
+            .ramblings-entry {
+                .ramblings-abstract {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
             }
         }
     }
@@ -75,9 +89,11 @@
 
 // ==== dark mode ====
 @media (prefers-color-scheme: dark) {
-    #content {
-        .ramblings-entry {
-            border-top: 1px dashed $parchment;
+    #wrapper {
+        #content {
+            .ramblings-entry {
+                border-top: 1px dashed $parchment;
+            }
         }
     }
 }

@@ -1,7 +1,12 @@
 <!-- meta -- seo -->
 <meta name="robots" content="index, follow">
-<title>~perplexedtheta | {{ page.title }}</title>
-<meta name="og:title" content="~perplexedtheta | {{ page.title }}">
+{% if page.title != '~perplexedtheta' %}
+    <title>~perplexedtheta | {{ page.title }}</title>
+    <meta name="og:title" content="~perplexedtheta | {{ page.title }}">
+{% else %}
+    <title>~perplexedtheta</title>
+    <meta name="og:title" content="~perplexedtheta">
+{% endif %}
 <meta name="description" content="{{ page.description }}">
 <meta name="og:description" content="{{ page.description }}">
 <!-- meta - favicons -->

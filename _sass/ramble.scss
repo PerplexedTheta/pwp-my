@@ -1,114 +1,116 @@
 @import "variables";
 
 // ==== ramble scss file, jake deery, 2024 ====
-#content {
-    .ramble-header {
-        margin: 0 0 1em 0;
-
-        .ramble-headline,
-        .ramble-abstract {
+#wrapper {
+    #content {
+        .ramble-header {
+            margin: 0 0 1em 0;
+    
+            .ramble-headline,
+            .ramble-abstract {
+                p {
+                    margin-bottom: 0.25em;
+                }
+    
+                small {
+                    font-weight: 200;
+                }
+            }
+    
+            .ramble-abstract {
+                .ramble-frontmatter,
+                .ramble-frontmatter-right {
+                    white-space: nowrap;
+                    overflow-x: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    
+        .ramble-hr {
+            margin: 1.25em 0;
+            border-top: 1px dashed $prussianBlue;
+    
+            &::after {
+                display: none;
+            }
+        }
+    
+        .ramble-frontmatter,
+        .ramble-backmatter {
             p {
                 margin-bottom: 0.25em;
             }
-
+    
             small {
+                min-width: 150px;
                 font-weight: 200;
             }
         }
-
-        .ramble-abstract {
-            .ramble-frontmatter,
-            .ramble-frontmatter-right {
+    
+        .ramble-content {
+            text-align: justify;
+    
+            .ramble-table {
+                table-layout: fixed;
+                width: 100%;
+                margin-top: 0.75em;
+                margin-bottom: 0.75em;
+        
+                td {
+                    overflow-x: hidden;
+                    text-overflow: ellipsis;
+                    border: 1px dashed $prussianBlue;
+                    text-align: center;
+                }
+            }
+    
+            .ramble-poster {
+                background-repeat: no-repeat;
+                background-attachment: center;
+                background-position: center;
+                background-size: cover;
+                margin-bottom: 1em;
+            }
+    
+            img {
+                display: block;
+                width: auto;
+                max-width: 66%;
+                margin: 0 auto;
+            }
+    
+            .ramble-next {
+                &::after {
+                    content: " \00bb";
+                }
+            }
+        
+            .ramble-prev {
+                &::before {
+                    content: "\00ab  ";
+                }
+            }
+        }
+    
+        .ramble-footer {
+            .ramble-backmatter {
                 white-space: nowrap;
                 overflow-x: hidden;
                 text-overflow: ellipsis;
             }
-        }
-    }
-
-    .ramble-hr {
-        margin: 1.25em 0;
-        border-top: 1px dashed $prussianBlue;
-
-        &::after {
-            display: none;
-        }
-    }
-
-    .ramble-frontmatter,
-    .ramble-backmatter {
-        p {
-            margin-bottom: 0.25em;
-        }
-
-        small {
-            min-width: 150px;
-            font-weight: 200;
-        }
-    }
-
-    .ramble-content {
-        text-align: justify;
-
-        .ramble-table {
-            table-layout: fixed;
-            width: 100%;
-            margin-top: 0.75em;
-            margin-bottom: 0.75em;
     
-            td {
-                overflow-x: hidden;
-                text-overflow: ellipsis;
-                border: 1px dashed $prussianBlue;
-                text-align: center;
-            }
-        }
-
-        .ramble-poster {
-            background-repeat: no-repeat;
-            background-attachment: center;
-            background-position: center;
-            background-size: cover;
-            margin-bottom: 1em;
-        }
-
-        img {
-            display: block;
-            width: auto;
-            max-width: 66%;
-            margin: 0 auto;
-        }
-
-        .ramble-next {
-            &::after {
-                content: " \00bb";
-            }
-        }
+            .ramble-backmatter-right {
+                .ramble-tags,
+                .ramble-category {
+                    white-space: nowrap;
+                    overflow-x: hidden;
+                    text-overflow: ellipsis;
+                }
     
-        .ramble-prev {
-            &::before {
-                content: "\00ab  ";
-            }
-        }
-    }
-
-    .ramble-footer {
-        .ramble-backmatter {
-            white-space: nowrap;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .ramble-backmatter-right {
-            .ramble-tags,
-            .ramble-category {
-                white-space: nowrap;
-                overflow-x: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .ramble-category {
-                min-width: 9.5rem;
+                .ramble-category {
+                    min-width: 9.5rem;
+                }
             }
         }
     }
@@ -116,14 +118,16 @@
 
 // ==== dark mode ====
 @media (prefers-color-scheme: dark) {
-    #content {
-        .ramble-hr {
-            border-top-color: $parchment;
-        }
-
-        .ramble-table {
-            td {
-                border-color: $parchment;
+    #wrapper {
+        #content {
+            .ramble-hr {
+                border-top-color: $parchment;
+            }
+    
+            .ramble-table {
+                td {
+                    border-color: $parchment;
+                }
             }
         }
     }
@@ -136,32 +140,34 @@
 
 // ==== pc mode ====
 @media (min-width: 992px) {
-    #content {
-        .ramble-header {
-            .ramble-abstract {
+    #wrapper {
+        #content {
+            .ramble-header {
+                .ramble-abstract {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+    
+            .ramble-footer {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-            }
-        }
-
-        .ramble-footer {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            .ramble-backmatter {
-                min-width: 85px;
-            }
-
-            .ramble-backmatter-right {
-                max-width: calc(100% - 85px);
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-
-                .ramble-category {
-                    text-align: end;
+    
+                .ramble-backmatter {
+                    min-width: 85px;
+                }
+    
+                .ramble-backmatter-right {
+                    max-width: calc(100% - 85px);
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+    
+                    .ramble-category {
+                        text-align: end;
+                    }
                 }
             }
         }

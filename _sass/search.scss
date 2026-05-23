@@ -1,82 +1,95 @@
 @import "variables";
 
 // ==== search scss file, jake deery, 2024 ====
-#content {
-    #search-input {
-        padding: 0.33em 0.175em;
-        width: 100%;
-        background: transparent;
-        color: $prussianBlue;
-        border: 2px solid lighten($prussianBlue, 15%);
-
-        &:hover,
-        &:focus,
-        &:active {
-            background-color: lighten($prussianBlue, 85%);
-        }
-
-        &:focus {
-            border-color: darken($prussianBlue, 15%);
-            background-color: lighten($prussianBlue, 85%);
-            outline: 0.33em solid lighten($prussianBlue, 15%);
-        }
-
-        &::placeholder {
-            color: $prussianBlue;
-            font-style: italic;
-            opacity: 0.33;
+body[data-page-id="/search/"] {
+    #wrapper {
+        #content {
+            h1 {
+                margin-bottom: 1em;
+            }
         }
     }
+}
 
-    .search-result {
-        margin: 1em 0 1em 0;
-        padding: 1em 0 0 0;
-        border-top: 1px dashed $prussianBlue;
+#wrapper {
+    #content {
+        #search-input {
+            margin-bottom: 150px;
+            padding: 0.33em 0.175em;
+            width: 100%;
+            background: transparent;
+            color: $prussianBlue;
+            border: 2px solid lighten($prussianBlue, 15%);
 
-        .search-headline,
-        .search-abstract,
-        .search-desc {
-            p {
-                margin-bottom: 0.25em;
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: lighten($prussianBlue, 85%);
             }
 
-            small {
-                font-weight: 200;
+            &:focus {
+                border-color: darken($prussianBlue, 15%);
+                background-color: lighten($prussianBlue, 85%);
+                outline: 0.33em solid lighten($prussianBlue, 15%);
+            }
+
+            &::placeholder {
+                color: $prussianBlue;
+                font-style: italic;
+                opacity: 0.33;
             }
         }
 
-        .search-headline {
-            h1,
-            h4 {
-                &::before {
-                    content: "";
+        .search-result {
+            margin: 1em 0 1em 0;
+            padding: 1em 0 0 0;
+            border-top: 1px dashed $prussianBlue;
+
+            .search-headline,
+            .search-abstract,
+            .search-desc {
+                p {
+                    margin-bottom: 0.25em;
+                }
+
+                small {
+                    font-weight: 200;
                 }
             }
-        }
 
-        .search-date {
-            min-width: 7.5rem;
-        }
-
-        .search-abstract {
-            margin-bottom: 0.75em;
-
-            .search-frontmatter {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .search-headline {
+                h1,
+                h4 {
+                    &::before {
+                        content: "";
+                    }
+                }
             }
 
-            .search-frontmatter-right {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .search-date {
+                min-width: 7.5rem;
             }
-        }
 
-        .search-desc {
-            .search-excerpt {
-                text-align: justify;
+            .search-abstract {
+                margin-bottom: 0.75em;
+
+                .search-frontmatter {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .search-frontmatter-right {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .search-desc {
+                .search-excerpt {
+                    text-align: justify;
+                }
             }
         }
     }
@@ -84,12 +97,14 @@
 
 // ==== pc mode ====
 @media (min-width: 992px) {
-    #content {
-        .search-result {
-            .search-abstract {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+    #wrapper {
+        #content {
+            .search-result {
+                .search-abstract {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
             }
         }
     }
@@ -97,30 +112,32 @@
 
 // ==== dark mode ====
 @media (prefers-color-scheme: dark) {
-    #content {
-        #search-input {
-            border: 2px solid darken($parchment, 15%);
-            color: $parchment;
-
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: darken($parchment, 85%);
-            }
-
-            &:focus {
-                border-color: lighten($parchment, 15%);
-                background-color: darken($parchment, 85%);
-                outline: 0.33em solid darken($parchment, 15%);
-            }
-
-            &::placeholder {
+    #wrapper {
+        #content {
+            #search-input {
+                border: 2px solid darken($parchment, 15%);
                 color: $parchment;
-            }
-        }
 
-        .search-result {
-            border-top-color: $parchment;
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: darken($parchment, 85%);
+                }
+
+                &:focus {
+                    border-color: lighten($parchment, 15%);
+                    background-color: darken($parchment, 85%);
+                    outline: 0.33em solid darken($parchment, 15%);
+                }
+
+                &::placeholder {
+                    color: $parchment;
+                }
+            }
+
+            .search-result {
+                border-top-color: $parchment;
+            }
         }
     }
 }

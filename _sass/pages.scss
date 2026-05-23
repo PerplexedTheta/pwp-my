@@ -1,79 +1,51 @@
 @import "variables";
 
 // ==== pages scss file, jake deery, 2024 ====
-#content {
-    // home page
-    .home-content {
-        padding: 150px 0;
-    }
+#wrapper {
+    #content {
+        // about page
+        .about-header {
+            a {
+                img {
+                    width: 65%;
+                    border-radius: 50%;
+                }
 
-    // about page
-    .about-header {
-        a {
-            img {
-                width: 65%;
-                border-radius: 50%;
+                &::after {
+                    display: none;
+                }
             }
 
-            &::after {
-                display: none;
+            p {
+                margin: 0;
             }
         }
 
-        p {
-            margin: 0;
+        .about-work,
+        .about-contact,
+        .about-background,
+        .about-edu,
+        .about-tech {
+            text-align: justify;
         }
-    }
 
-    .about-work,
-    .about-contact,
-    .about-background,
-    .about-edu,
-    .about-tech {
-        text-align: justify;
-    }
+        .about-edu {
+            .about-edu-entry {
+                img {
+                    float: right;
+                    max-width: 85px;
+                    margin: 0 0 1.5em 1.5em;
+                }
 
-    .about-edu {
-        .about-edu-entry {
-            img {
-                float: right;
-                max-width: 85px;
-                margin: 0 0 1.5em 1.5em;
-            }
+                h5 {
+                    display: inline;
+                    font-style: oblique;
 
-            h5 {
-                display: inline;
-                font-style: oblique;
-
-                &::before {
-                    content: "";
+                    &::before {
+                        content: "";
+                    }
                 }
             }
         }
-    }
-
-    // portfolio page
-    .portfolio-pwp,
-    .portfolio-professional,
-    .portfolio-my {
-        img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-        }
-
-        p {
-            text-align: justify;
-        }
-    }
-
-    // goodies page
-    .goodies-content {
-        padding: 150px 0;
-    }
-
-    // legal page
-    .legal-content {
-        padding: 150px 0;
     }
 }

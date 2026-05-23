@@ -1,10 +1,19 @@
 @import "variables";
 
+:root {
+    font-size: 16px;
+}
+
 // ==== main scss file, jake deery, 2024 ====
 html,
 body {
     padding: 0;
     margin: 0;
+    border: 0;
+    outline: 0;
+
+    // hide overflow to the right
+    overflow-x: hidden;
 
     // bg to be page-like
     // color to be dark blue
@@ -25,7 +34,8 @@ body {
 
 // ==== general rules ====
 p,
-.p{
+.p {
+    font-size: 1.2em;
     text-align: justify;
     text-justify: auto;
 }
@@ -37,22 +47,23 @@ p,
 
 small,
 .small {
-    font-size: .875em;
+    font-size: 0.875em;
 }
 
 a {
-    // set links up
     color: lighten($prussianBlue, 25%);
     font-style: italic;
-    text-decoration: none;
+    text-decoration-style: dotted;
+    text-decoration-line: underline;
+    font-weight: normal;
 
     &:hover,
     &:focus,
     &:active {
         color: darken($prussianBlue, 25%);
-        text-decoration-color: darken($prussianBlue, 25%);
-        text-decoration-style: dotted;
+        text-decoration-style: solid;
         text-decoration-line: underline;
+        font-weight: bold;
     }
 
     // we want a nice box around focused links
@@ -65,7 +76,7 @@ a {
 
     &[target="_blank"] {
         &::after {
-            content: '\2197\fe0f';
+            content: "\2197\fe0f";
         }
     }
 }
@@ -73,7 +84,7 @@ a {
 figcaption,
 .figcaption {
     margin: 0 2em;
-    font-size: .768em;
+    font-size: 0.768em;
     font-style: italic;
     font-weight: 600;
 }
@@ -83,12 +94,12 @@ hr {
     margin: 2.25em 0;
     border: none;
     color: $prussianBlue;
-    opacity: 1.0;
+    opacity: 1;
     font-weight: bold;
 
     &::after {
         display: block;
-        content: '***';
+        content: "***";
         width: 100%;
         text-align: center;
     }
@@ -98,14 +109,26 @@ hr {
     overflow: auto;
 }
 
+.kernow,
+.devon {
+    background: $parchment;
+    color: #000;
+    font-style: normal;
+    font-size: 0.8em;
+}
+
+.devon {
+    color: #00843d;
+}
+
 // ==== app-specific rules ====
 #notifications {
     position: fixed;
-    top: 1em;
+    top: 3.5em;
     right: 1em;
     display: none;
     width: 70vw;
-    padding: .33em;
+    padding: 0.33em;
     z-index: 9999;
 
     background-color: lighten($prussianBlue, 65%);
@@ -113,226 +136,202 @@ hr {
 }
 
 #wrapper {
-    display: block;
-    margin: 0 auto;
-    padding: 1.5em;
-
-    .kernow,
-    .devon {
-        background: $parchment;
-        color: #000;
-        font-style: normal;
-        font-size: 0.8em;
-    }
-
-    .devon {
-        color: #00843d;
-    }
-}
-
-#header {
-    display: flex;
-    flex-direction: row;
-    margin: 1.5em 0;
-
-    #brand {
-        position: relative;
-        display: none;
-    }
-
-    #brand-mobile {
-        margin: 0 0 0 auto;
-        display: inline-block;
-    }
-
-    #logo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 0 1.5em;
-        width: 14em;
-        max-width: calc(30vw - 3em);
-    }
-
-    #logo-mobile {
-        width: 14em;
-        max-width: 40vw;
-    }
-
-    #nav {
-        display: block;
-        margin: 0 auto 0 0;
-        padding-left: 0;
-        list-style: none;
-
-        .nav-link {
-            padding: 0;
-            color: lighten($prussianBlue, 15%);
-
-            &:hover,
-            &:focus,
-            &:active {
-                color: darken($prussianBlue, 25%);
-                text-decoration-color: darken($prussianBlue, 25%);
-                text-decoration-style: dotted;
-                text-decoration-line: underline;
-            }
-
-            // we want a nice box around focused links
-            &:focus,
-            &:active {
-                box-shadow: none;
-                outline: 2px dashed $prussianBlue;
-            }
-        }
-    }
-}
-
-#content {
-    h1 {
-        font-size: 1.75rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-
-        &::before {
-            content: "# ";
-            color: lighten($prussianBlue, 10%);
-        }
-
-        span:hover + a {
-            color: #ffffff7f;
-        }
-
-        a {
-            color: #ffffff00;
-
-            &:hover,
-            &:focus,
-            &:active {
-                color: #ffffffff;
-            }
-        }
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-
-        &::before {
-            content: "# ";
-            color: lighten($prussianBlue, 10%);
-        }
-    }
-
-    h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-
-        &::before {
-            content: "# ";
-            color: lighten($prussianBlue, 10%);
-        }
-    }
-
-    h4 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        margin-bottom: 0.25rem;
-
-        &::before {
-            content: "# ";
-            color: lighten($prussianBlue, 10%);
-        }
-    }
-
-    h5 {
-        font-size: 1.0625rem;
-        font-weight: 500;
-        margin-bottom: 0.125rem;
-
-        &::before {
-            content: "# ";
-            color: lighten($prussianBlue, 10%);
-        }
-    }
-}
-
-#footer {
-    margin: 1.5em 0;
-    justify-content: center;
-
-    .footer-preception,
-    .footer-mugshot {
-        margin-bottom: 1em;
-
-        img {
-            width: auto;
-            height: 32px;
-        }
-    }
-
-    .footer-legal {
-        margin-bottom: 1em;
-    }
-}
-
-// ==== pc mode ====
-@media (min-width: 992px) {
-    #notifications {
-        width: 20vw;
-    }
-
-    #wrapper {
-        max-width: calc(40vw + 2em);
-        padding: 1em;
-    }
-
     #header {
-        margin: 1em 0;
-
-        #brand {
-            display: block;
-        }
-
-        #brand-mobile {
-            display: none;
-        }
+        display: flex;
+        flex-direction: column;
+        position: relative;
 
         #nav {
             display: flex;
             flex-direction: row;
-            margin: 0 0 0 auto;
+            justify-content: center;
+            padding: 0.5em 1em;
+            background: rgba($prussianBlue, .15);
 
-            .nav-item {
-                .nav-link {
-                    margin: 0 .5em;
-                }
+            #brand {
+                display: none;
+            }
 
-                &:last-child {
+            #nav-list {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                .nav-item {
                     .nav-link {
-                        margin: 0 0 0 .5em;
+                        margin: 0 0.5em;
                     }
                 }
             }
         }
     }
 
+    #ident {
+        width: 0;
+        height: 0;
+        margin: 1em;
+        padding: calc(50vw - 1em) calc(100vw - 1em) 0 0;
+        background: url("../vectors/logo_l2r.svg") top left no-repeat;
+        background-size: contain;
+    }
+
+    #content {
+        position: relative;
+        padding: 1em;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 150px;
+
+            &::before {
+                content: "# ";
+                color: lighten($prussianBlue, 10%);
+            }
+
+            span:hover + a {
+                color: rgba(white, .45);
+            }
+
+            a {
+                color: rgba(white, .0);
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: rgba(white, 1.0);
+                }
+            }
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+
+            &::before {
+                content: "# ";
+                color: lighten($prussianBlue, 10%);
+            }
+        }
+
+        h3 {
+            font-size: 1.50rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+
+            &::before {
+                content: "# ";
+                color: lighten($prussianBlue, 10%);
+            }
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+
+            &::before {
+                content: "# ";
+                color: lighten($prussianBlue, 10%);
+            }
+        }
+
+        h5 {
+            font-size: 1.0625rem;
+            font-weight: 500;
+            margin-bottom: 0.125rem;
+
+            &::before {
+                content: "# ";
+                color: lighten($prussianBlue, 10%);
+            }
+        }
+    }
+
     #footer {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin: 1em 0;
-        padding-left: 0;
+        position: relative;
+        padding: 1em;
+        justify-content: center;
 
         .footer-preception,
         .footer-mugshot {
-            margin: 0 .25em 1em .25em;
+            margin-bottom: 1em;
+
+            img {
+                width: auto;
+                height: 32px;
+            }
         }
 
         .footer-legal {
-            width: 100%;
+            margin-bottom: 1em;
+        }
+    }
+}
+
+// ==== pc mode ====
+@media (min-width: 992px) {
+    #notifications {
+        width: 33vw;
+    }
+
+    #wrapper {
+        #header {
+            #nav {
+                justify-content: space-between;
+                padding: 0.5em 1em;
+
+                #brand {
+                    display: block;
+
+                    a {
+                        font-weight: bolder;
+                    }
+                }
+
+                #nav-list {
+                    .nav-item {
+                        &:first-child {
+                            .nav-link {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #header-home {
+                padding: 1em calc(50vw / 2);
+            }
+        }
+
+        #ident {
+            position: absolute;
+            top: 3em;
+            right: .5em;
+            padding: 35vw 17.5vw 0 0;
+            background: url("../vectors/logo_t2b.svg") top left no-repeat;
+            background-size: contain;
+        }
+
+        #content {
+            padding: 1em calc(50vw / 2);
+        }
+
+        #footer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 1em calc(50vw / 2);
+            margin: 1em 0;
+
+            .footer-legal {
+                width: 100%;
+            }
         }
     }
 }
@@ -353,7 +352,6 @@ hr {
     }
 
     a {
-        // set links up
         color: darken($parchment, 25%);
 
         &:hover,
@@ -380,37 +378,44 @@ hr {
         outline: 2px dashed $parchment;
     }
 
-    #header {
-        #nav {
-            .nav-link {
-                color: darken($parchment, 15%);
+    #wrapper {
+        #header {
+            #nav {
+                background: rgba($parchment, .15);
 
-                &:hover,
-                &:focus,
-                &:active {
-                    color: lighten($parchment, 5%);
-                    text-decoration-color: lighten($parchment, 5%);
-                }
+                #nav-list {
+                    .nav-item {
+                        .nav-link {
+                            color: darken($parchment, 15%);
 
-                // we want a nice box around focused links
-                &:focus,
-                &:active {
-                    box-shadow: none;
-                    outline: 2px dashed $parchment;
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                color: lighten($parchment, 5%);
+                                text-decoration-color: lighten($parchment, 5%);
+                            }
+
+                            &:focus,
+                            &:active {
+                                box-shadow: none;
+                                outline: 2px dashed $parchment;
+                            }
+                        }
+                    }
                 }
             }
         }
-    }
 
-    #content {
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            &::before {
-                content: "# ";
-                color: darken($parchment, 10%);
+        #content {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                &::before {
+                    content: "# ";
+                    color: darken($parchment, 10%);
+                }
             }
         }
     }
