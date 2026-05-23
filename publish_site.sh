@@ -15,6 +15,6 @@ fi
 
 rm -rfv "${SITE_DIR}" || exit 1
 
-bundle exec jekyll build || exit 1
+JEKYLL_ENV=production bundle exec jekyll build || exit 1
 
 cp -rv _site "${SITE_DIR}" || exit 1
