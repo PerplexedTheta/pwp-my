@@ -1,9 +1,13 @@
 <div id="nav">
     <div id="brand">
-        <a href="{{ '/' | relative_url }}">~perplexedtheta</a>
+        <span>~perplexedtheta</span>
     </div>
     <ul id="nav-list">
-        <li class="nav-item"><a href="{{- '/' | relative_url }}" class="nav-link">home</a></li>
+        <li class="nav-item">
+            <a href="{{- '/' | relative_url }}" class="nav-link home-link">
+                &#127968; <span class="visually-hidden">home</span>
+            </a>
+        </li>
         <li class="nav-item"><a href="{{- 'about/' | relative_url }}" class="nav-link">about</a></li>
         <li class="nav-item"><a href="{{- 'ramblings/' | relative_url }}" class="nav-link">ramblings</a></li>
         <li class="nav-item"><a href="{{- 'goodies/' | relative_url }}" class="nav-link">goodies</a></li>

@@ -143,13 +143,17 @@ hr {
 
         #nav {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             padding: 0.5em 1em;
-            background: rgba($prussianBlue, .15);
+            background: rgba($prussianBlue, 0.15);
 
             #brand {
-                display: none;
+                text-align: center;
+
+                span {
+                    font-weight: bolder;
+                }
             }
 
             #nav-list {
@@ -166,6 +170,20 @@ hr {
                     }
                 }
             }
+        }
+    }
+
+    #house {
+        display: none;
+        position: absolute;
+        top: 3em;
+        left: 0.5em;
+        margin: 1em;
+        z-index: 999;
+
+        a {
+            font-size: 1.6em;
+            line-height: 1;
         }
     }
 
@@ -193,16 +211,16 @@ hr {
             }
 
             span:hover + a {
-                color: rgba(white, .45);
+                color: rgba(white, 0.45);
             }
 
             a {
-                color: rgba(white, .0);
+                color: rgba(white, 0);
 
                 &:hover,
                 &:focus,
                 &:active {
-                    color: rgba(white, 1.0);
+                    color: rgba(white, 1);
                 }
             }
         }
@@ -219,7 +237,7 @@ hr {
         }
 
         h3 {
-            font-size: 1.50rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
 
@@ -271,6 +289,17 @@ hr {
             margin-bottom: 1em;
         }
     }
+
+    .home-link {
+        font-style: normal;
+
+        &:hover,
+        &:focus,
+        &:active {
+            outline: 2px dashed $prussianBlue;
+            font-weight: normal;
+        }
+    }
 }
 
 // ==== pc mode ====
@@ -282,16 +311,9 @@ hr {
     #wrapper {
         #header {
             #nav {
+                flex-direction: row;
                 justify-content: space-between;
                 padding: 0.5em 1em;
-
-                #brand {
-                    display: block;
-
-                    a {
-                        font-weight: bolder;
-                    }
-                }
 
                 #nav-list {
                     .nav-item {
@@ -303,16 +325,16 @@ hr {
                     }
                 }
             }
+        }
 
-            #header-home {
-                padding: 1em calc(50vw / 2);
-            }
+        #house {
+            display: block;
         }
 
         #ident {
             position: absolute;
             top: 3em;
-            right: .5em;
+            right: 0.5em;
             padding: 35vw 17.5vw 0 0;
             background: url("../vectors/logo_t2b.svg") top left no-repeat;
             background-size: contain;
@@ -381,7 +403,7 @@ hr {
     #wrapper {
         #header {
             #nav {
-                background: rgba($parchment, .15);
+                background: rgba($parchment, 0.15);
 
                 #nav-list {
                     .nav-item {
@@ -416,6 +438,14 @@ hr {
                     content: "# ";
                     color: darken($parchment, 10%);
                 }
+            }
+        }
+
+        .home-link {
+            &:hover,
+            &:focus,
+            &:active {
+                outline: 2px dashed $parchment;
             }
         }
     }

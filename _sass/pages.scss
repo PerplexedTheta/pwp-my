@@ -3,6 +3,13 @@
 // ==== pages scss file, jake deery, 2024 ====
 #wrapper {
     #content {
+        // home page
+        .home-title {
+            &::before {
+                display: none;
+            }
+        }
+
         // about page
         .about-header {
             a {
