@@ -7,6 +7,10 @@
 // ==== main scss file, jake deery, 2024 ====
 html,
 body {
+    // ensure site fills screen height
+    min-height: 100vh;
+
+    // disable all box sizing defaults
     padding: 0;
     margin: 0;
     border: 0;
@@ -18,6 +22,7 @@ body {
     // bg to be page-like
     // color to be dark blue
     background: $parchment;
+    background: linear-gradient(145deg, darken($parchment, 3.333%) 0%, $parchment 100%);
     color: $prussianBlue;
 
     // font
@@ -146,7 +151,7 @@ hr {
             flex-direction: column;
             justify-content: center;
             padding: 0.5em 1em;
-            background: rgba($prussianBlue, 0.15);
+            background: rgba($fireEngineRed, 0.33);
 
             #brand {
                 text-align: center;
@@ -167,6 +172,13 @@ hr {
                 .nav-item {
                     .nav-link {
                         margin: 0 0.5em;
+                        color: lighten($prussianBlue, 5%);
+
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            color: darken($prussianBlue, 25%);
+                        }
                     }
                 }
             }
@@ -362,9 +374,10 @@ hr {
 @media (prefers-color-scheme: dark) {
     html,
     body {
-        // bg to be page-like
-        // color to be dark blue
+        // bg to be dark blue
+        // color to be page-like
         background: $prussianBlue;
+        background: linear-gradient(145deg, $prussianBlue 0%, lighten($prussianBlue, 3.333%) 100%);
         color: $parchment;
     }
 
@@ -403,8 +416,6 @@ hr {
     #wrapper {
         #header {
             #nav {
-                background: rgba($parchment, 0.15);
-
                 #nav-list {
                     .nav-item {
                         .nav-link {
