@@ -155,7 +155,7 @@ hr {
             flex-direction: column;
             justify-content: center;
             padding: 0.5em 1em;
-            background: rgba($fireEngineRed, 0.33);
+            border-bottom: 2px solid $fireEngineRed;
 
             #brand {
                 text-align: center;
@@ -176,13 +176,6 @@ hr {
                 .nav-item {
                     .nav-link {
                         margin: 0 0.5em;
-                        color: lighten($prussianBlue, 5%);
-
-                        &:hover,
-                        &:focus,
-                        &:active {
-                            color: darken($prussianBlue, 25%);
-                        }
                     }
                 }
             }
@@ -425,31 +418,6 @@ hr {
     }
 
     #wrapper {
-        #header {
-            #nav {
-                #nav-list {
-                    .nav-item {
-                        .nav-link {
-                            color: darken($parchment, 15%);
-
-                            &:hover,
-                            &:focus,
-                            &:active {
-                                color: lighten($parchment, 5%);
-                                text-decoration-color: lighten($parchment, 5%);
-                            }
-
-                            &:focus,
-                            &:active {
-                                box-shadow: none;
-                                outline: 2px dashed $parchment;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         #content {
             h1,
             h2,
