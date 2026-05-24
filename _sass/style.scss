@@ -22,7 +22,11 @@ body {
     // bg to be page-like
     // color to be dark blue
     background: $parchment;
-    background: linear-gradient(145deg, darken($parchment, 3.333%) 0%, $parchment 100%);
+    background: linear-gradient(
+        145deg,
+        darken($parchment, 3.333%) 0%,
+        $parchment 100%
+    );
     color: $prussianBlue;
 
     // font
@@ -215,7 +219,6 @@ hr {
         h1 {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 150px;
 
             &::before {
                 content: "# ";
@@ -354,6 +357,10 @@ hr {
 
         #content {
             padding: 1em calc(50vw / 2);
+
+            h1 {
+                margin-bottom: 150px;
+            }
         }
 
         #footer {
@@ -377,7 +384,11 @@ hr {
         // bg to be dark blue
         // color to be page-like
         background: $prussianBlue;
-        background: linear-gradient(145deg, $prussianBlue 0%, lighten($prussianBlue, 3.333%) 100%);
+        background: linear-gradient(
+            145deg,
+            $prussianBlue 0%,
+            lighten($prussianBlue, 3.333%) 100%
+        );
         color: $parchment;
     }
 

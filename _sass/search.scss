@@ -14,7 +14,6 @@ body[data-page-id="/search/"] {
 #wrapper {
     #content {
         #search-input {
-            margin-bottom: 150px;
             padding: 0.33em 0.175em;
             width: 100%;
             background: transparent;
@@ -99,6 +98,10 @@ body[data-page-id="/search/"] {
 @media (min-width: 992px) {
     #wrapper {
         #content {
+            #search-input {
+                margin-bottom: 150px;
+            }
+
             .search-result {
                 .search-abstract {
                     display: flex;
